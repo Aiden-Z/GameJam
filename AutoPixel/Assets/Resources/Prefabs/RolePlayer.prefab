@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 3110545956611327352}
   - component: {fileID: 4340460792334349706}
   - component: {fileID: 1615724391}
-  m_Layer: 18
+  m_Layer: 15
   m_Name: bait_trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
