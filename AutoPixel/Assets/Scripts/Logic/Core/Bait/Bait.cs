@@ -21,6 +21,11 @@ namespace Logic.Core.Bait
             State = BaitState.Idle;
         }
 
+        public void SetController(PlatformController controller)
+        {
+            Controller = controller;
+        }
+
         public void Hold(Transform parent)
         {
             transform.SetParent(parent);

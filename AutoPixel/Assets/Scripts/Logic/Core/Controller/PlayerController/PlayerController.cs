@@ -1,4 +1,6 @@
 using System;
+using Logic.Core.Controller.BaitFinder;
+using Logic.Core.Controller.GroundFinder;
 using Logic.Core.Controller.PlatformController;
 using Logic.UI;
 using Unity.Mathematics;
@@ -16,6 +18,8 @@ namespace Logic.Core.PlayerController
         public State State;
         public GameHud GameHud;
         public Transform BaitHolder;
+        public BaitFinder BaitFinder;
+        public GroundFinder GroundFinder;
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
 
@@ -53,16 +57,8 @@ namespace Logic.Core.PlayerController
                         var maxX = MaxThrowDistance * cosRad;
                         var minY = MinThrowDistance * sinRad;
                         var minX = MinThrowDistance * cosRad;
-                        if (m_holdingBait == null)
-                        {
-                            m_holdingBait = Instantiate(BaitTemplate, new Vector3(minX, minY) + transform.position, Quaternion.identity, BaitRoot);
-                            m_holdingBait.gameObject.SetActive(true);
-                        }
-                        else
-                        {
-                            m_holdingBait.transform.position =
-                                transform.position + (new Vector3(maxX, maxY) - new Vector3(minX, minY)) * progress;
-                        }
+                        m_holdingBait.transform.position =
+                            transform.position + (new Vector3(maxX, maxY) - new Vector3(minX, minY)) * progress;
                     }
                     break;
             }
@@ -132,7 +128,15 @@ namespace Logic.Core.PlayerController
         {
             if (callbackContext.phase == InputActionPhase.Started)
             {
-                
+                var bait = BaitFinder.GetBait(transform.position);
+                if (bait != null)
+                {
+                    State = State.Holding;
+                    bait.transform.SetParent(BaitHolder);
+                    bait.transform.localPosition = Vector3.zero;
+                    bait.SetController(PlatformController);
+                    m_holdingBait = bait;
+                }
             }
         }
     }

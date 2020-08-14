@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3375231038142056989}
   - component: {fileID: 3375231038142056990}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,9 @@ GameObject:
   - component: {fileID: 3375231039525524353}
   - component: {fileID: 3375231039525524354}
   - component: {fileID: 3375231039525524355}
-  m_Layer: 0
-  m_Name: targetTemplate
+  - component: {fileID: -7795457760523250741}
+  m_Layer: 17
+  m_Name: baitTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,3 +184,19 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 3375231039525524354}
   ShowingSprite: {fileID: 3375231038142056990}
   Controller: {fileID: 0}
+--- !u!58 &-7795457760523250741
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375231039525524352}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
