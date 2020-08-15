@@ -46,6 +46,9 @@ TagManager:
   - name: background
     uniqueID: 2478590141
     locked: 0
+  - name: Ant
+    uniqueID: 2787767131
+    locked: 0
   - name: middleground
     uniqueID: 746817845
     locked: 0
