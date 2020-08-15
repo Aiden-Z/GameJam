@@ -1,6 +1,7 @@
 ﻿using System;
 using Logic.Core.Controller.PlatformController;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Logic.Core.Bait
 {
@@ -8,10 +9,9 @@ namespace Logic.Core.Bait
     {
         public float Lifetime;
         public float FlyingTime;
+        public float MaxRadius;
         public SpriteRenderer SpriteRenderer;
         public SpriteRenderer ShowingSprite;
-
-        public PlatformController Controller;
 
         private float m_dyingTimer;
 
@@ -21,11 +21,6 @@ namespace Logic.Core.Bait
             State = BaitState.Idle;
         }
 
-        public void SetController(PlatformController controller)
-        {
-            Controller = controller;
-        }
-        
         public void Aim()
         {
             m_dyingTimer = 0;
@@ -60,18 +55,33 @@ namespace Logic.Core.Bait
                     if (m_flyingTimer >= FlyingTime)
                     {
                         State = BaitState.Dying;
-                        Controller.SetTarget(transform);
+                        GameSceneManager.Instance.PlatformController.SetTarget(transform);
+                        GameSceneManager.Instance.AntManager.PushBait(this);
                     }
                     break;
                 case BaitState.Dying:
                     m_dyingTimer += Time.fixedDeltaTime;
                     if (m_dyingTimer >= Lifetime)
                     {
-                        Controller.RemoveTarget(transform);
+                        GameSceneManager.Instance.PlatformController.RemoveTarget(transform);
                         Destroy(gameObject);
                     }
                     break;
             }
+        }
+
+        public float GetCurRadius()
+        {
+            return MaxRadius * m_dyingTimer / Lifetime;
+        }
+
+        public Vector3 GetRandomPoint()
+        {
+            var curRadius = GetCurRadius();
+            var randomRad = Random.Range(0, Mathf.PI * 2);
+            var x = Mathf.Cos(randomRad) * curRadius;
+            var y = Mathf.Sin(randomRad) * curRadius;
+            return new Vector3(x, y) + transform.position;
         }
     }
 

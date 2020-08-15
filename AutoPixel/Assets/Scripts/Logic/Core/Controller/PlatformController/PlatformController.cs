@@ -10,6 +10,14 @@ namespace Logic.Core.Controller.PlatformController
         public float ForceFactor;
         public float FloatingFactor;
         public Rigidbody2D Rigidbody2D;
+        public List<Ground.Ground> Grounds = new List<Ground.Ground>();
+
+        private void Awake()
+        {
+            var grounds = GetComponentsInChildren<Ground.Ground>();
+            Grounds.AddRange(grounds);
+        }
+
         public void SetTarget(Transform target)
         {
             Targets.Add(target);

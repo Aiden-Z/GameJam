@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c6daa0e6f54dcba5909b4c05e0093d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lifetime: 2
+  Lifetime: 3
   FlyingTime: 1
   SpriteRenderer: {fileID: 3375231039525524354}
   ShowingSprite: {fileID: 3375231038142056990}
