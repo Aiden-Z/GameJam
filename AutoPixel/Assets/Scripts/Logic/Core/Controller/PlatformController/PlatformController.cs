@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Logic.Core.Controller.PlatformController
 {
@@ -10,12 +11,60 @@ namespace Logic.Core.Controller.PlatformController
         public float ForceFactor;
         public float FloatingFactor;
         public Rigidbody2D Rigidbody2D;
-        public List<Ground.Ground> Grounds = new List<Ground.Ground>();
+        public int XCount;
+        public int YCount;
+        private Ground.Ground[][] Grounds;
 
         private void Awake()
         {
             var grounds = GetComponentsInChildren<Ground.Ground>();
-            Grounds.AddRange(grounds);
+            Grounds = new Ground.Ground[XCount][];
+            for (int i = 0; i < XCount; i++)
+            {
+                Grounds[i] = new Ground.Ground[YCount];
+            }
+
+            foreach (var ground in grounds)
+            {
+                Grounds[ground.X][ground.Y] = ground;
+            }
+        }
+
+        public bool IsEdge(int x, int y)
+        {
+            if (x <= 0 || x >= XCount || y <= 0 || y >= YCount)
+            {
+                return true;
+            }
+
+            if (!IsValid(Grounds[x + 1][y]) || !IsValid(Grounds[x + 1][y + 1]) || !IsValid(Grounds[x - 1][y]) ||
+                !IsValid(Grounds[x - 1][y - 1]))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        public Ground.Ground GetRandomGround()
+        {
+            while (true)
+            {
+                var x = Random.Range(0, XCount);
+                var y = Random.Range(0, YCount);
+                if (Grounds[x][y] != null && Grounds[x][y].IsAlive)
+                {
+                    return Grounds[x][y];
+                }
+            }
+        }
+
+        public bool IsValid(Ground.Ground ground)
+        {
+            if (!ground) return false;
+            return ground.IsAlive;
         }
 
         public void SetTarget(Transform target)

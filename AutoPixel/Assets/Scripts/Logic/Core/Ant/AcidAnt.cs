@@ -17,9 +17,8 @@ namespace Logic.Core.Ant
             if (m_attackTimer >= AttackInterval)
             {
                 m_attackTimer = 0;
-
-                var index = Random.Range(0, GameSceneManager.Instance.PlatformController.Grounds.Count - 1);
-                var targetGround = GameSceneManager.Instance.PlatformController.Grounds[index];
+                
+                var targetGround = GameSceneManager.Instance.PlatformController.GetRandomGround();
                 var acidBody = Instantiate(GameSceneManager.Instance.AcidBodyTemplate, Vector3.zero,
                     Quaternion.identity, GameSceneManager.Instance.AcidBodyRoot);
                 acidBody.Target = targetGround.transform;
