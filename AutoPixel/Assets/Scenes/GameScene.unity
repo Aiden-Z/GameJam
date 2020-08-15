@@ -8335,22 +8335,22 @@ PrefabInstance:
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: MaxThrowDistance
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: MinThrowDistance
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: CoolDown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: MaxPressingTime
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
