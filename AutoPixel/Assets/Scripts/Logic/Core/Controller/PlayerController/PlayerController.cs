@@ -43,9 +43,12 @@ namespace Logic.Core.PlayerController
         private float m_timer;
         private float m_pressTimer;
         private Bait.Bait m_holdingBait;
+        [SerializeField] GameObject rotate;
+
         private void FixedUpdate()
+        
         {
-           // transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+            rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -95,6 +98,7 @@ namespace Logic.Core.PlayerController
         private InputActionPhase m_fireTriggerPhase;
         public void OnFire(InputAction.CallbackContext callbackContext)
         {
+
             m_fireTriggerPhase = callbackContext.phase;
             switch (callbackContext.phase)
             {
@@ -166,6 +170,7 @@ namespace Logic.Core.PlayerController
                 m_angle = (int) (Mathf.Rad2Deg * Mathf.Atan2(axis.y , axis.x));
             }
         }
+  
 
         public void OnHurt()
         {
