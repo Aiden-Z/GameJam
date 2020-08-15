@@ -18,7 +18,7 @@ namespace Logic.Core.Ground
                 return false;
             }
             else
-            {
+            {   
                 gameObject.SetActive(false);
                 return true;
             }
