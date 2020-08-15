@@ -22,6 +22,7 @@ namespace Logic.Core
         public FinishPoint.FinishPoint FinishPoint;
         public int MaxThrowBaitsNum;
         public int MinThrowBaitsNum;
+        public AcidAnt AcidAntTemplate;
 
         private void Awake()
         {

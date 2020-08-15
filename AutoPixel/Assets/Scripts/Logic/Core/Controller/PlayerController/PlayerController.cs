@@ -214,6 +214,7 @@ namespace Logic.Core.PlayerController
         public void AddStone(Collectable stone)
         {
             m_collected[typeof(Stone)].Enqueue(stone);
+            GameHud.SetStoneNum(m_collected[typeof(Stone)].Count);
         }
 
         public bool ConsumeStone()
@@ -222,6 +223,7 @@ namespace Logic.Core.PlayerController
             if (queue.Count != 0)
             {
                 var stone = queue.Dequeue();
+                GameHud.SetStoneNum(m_collected[typeof(Stone)].Count);
                 Destroy(stone.gameObject);
                 return true;
             }
