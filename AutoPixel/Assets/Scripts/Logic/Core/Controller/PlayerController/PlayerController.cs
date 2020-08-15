@@ -45,7 +45,7 @@ namespace Logic.Core.PlayerController
         private void FixedUpdate()
         {
             transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
-            m_rigidbody2D.velocity = m_direction * Velocity;
+            m_rigidbody2D.velocity = m_direction * Velocity + PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
             {
@@ -110,6 +110,7 @@ namespace Logic.Core.PlayerController
                         else
                         {
                             bait = m_collectedBait.Dequeue();
+                            GameHud.SetBaitsNum(m_collectedBait.Count);
                         }
                         
                         State = State.Holding;
