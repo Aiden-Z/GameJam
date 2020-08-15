@@ -21,6 +21,8 @@ namespace Logic.Core.PlayerController
         public Transform BaitHolder;
         public BaitFinder BaitFinder;
         public GroundFinder GroundFinder;
+        public RectTransform PositionPointer;
+        public RectTransform Canvas;
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
         Animator anim;
@@ -53,6 +55,7 @@ namespace Logic.Core.PlayerController
         
         {
             rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+            Canvas.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -62,8 +65,9 @@ namespace Logic.Core.PlayerController
                     if (State == State.Throwing)
                     {
                         GameHud.Press(m_pressTimer, MaxPressingTime);
+                        PositionPointer.gameObject.SetActive(true);
                         var progress = Mathf.Clamp01(m_pressTimer / MaxPressingTime);
-                        var rad = (transform.rotation.eulerAngles.z + 90) * Mathf.Deg2Rad;
+                        var rad = (m_angle) * Mathf.Deg2Rad;
                         var cosRad = Mathf.Cos(rad);
                         var sinRad = Mathf.Sin(rad);
                         var maxY = MaxThrowDistance * sinRad;
@@ -72,6 +76,7 @@ namespace Logic.Core.PlayerController
                         var minX = MinThrowDistance * cosRad;
                         m_holdingBait.transform.position =
                             transform.position + (new Vector3(maxX, maxY) - new Vector3(minX, minY)) * progress;
+                        PositionPointer.transform.position = m_holdingBait.transform.position;
                     }
                     break;
             }
@@ -110,7 +115,7 @@ namespace Logic.Core.PlayerController
                     if (State != State.Throwing && m_timer >= CoolDown)
                     {
                         Bait.Bait bait;
-                        if (m_collected.Count == 0)
+                        if (m_collected[typeof(Bait.Bait)].Count == 0)
                         {
 #if DEBUG && UNITY_EDITOR
                             bait = Instantiate(BaitTemplate, BaitRoot);
@@ -139,6 +144,7 @@ namespace Logic.Core.PlayerController
                     {
                         State = State.Idle;
                         GameHud.Release();
+                        PositionPointer.gameObject.SetActive(false);
                         m_holdingBait.Throw(this);
                         m_holdingBait = null;
                         m_timer = 0;
