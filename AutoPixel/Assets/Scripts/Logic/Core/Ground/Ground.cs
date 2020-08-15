@@ -6,9 +6,8 @@ namespace Logic.Core.Ground
 {
     public class Ground : MonoBehaviour
     {
-        public bool Life = true;
-        
-        public GroundType Type;      
+        public int Life = 4;
+        public GroundType Type;
 
         public int X, Y;
 
@@ -17,11 +16,11 @@ namespace Logic.Core.Ground
 
         public bool IsAlive => Health >= 0;
 
-        public bool Damage()
+        public bool TimeDamage()
         {
-            if (Life)
+            Life -= 2;
+            if (Life > 0)
             {
-                Life = false;
                 return false;
             }
             else
@@ -47,11 +46,17 @@ namespace Logic.Core.Ground
                 OnDead();
             }
         }
-
+        
         public void OnDead()
         {
             Collider2D.gameObject.layer = LayerMask.NameToLayer("PlayerBlock");
         }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+
+        }
+
         public enum GroundType
         {
             Edge,
