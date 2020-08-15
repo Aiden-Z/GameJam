@@ -14,7 +14,6 @@ namespace Logic.Core.PlayerController
     public class PlayerController : MonoBehaviour
     {
         public float Velocity;
-        public PlatformController PlatformController;
         public Transform BaitRoot;
         public Bait.Bait BaitTemplate;
         public State State;
@@ -45,7 +44,7 @@ namespace Logic.Core.PlayerController
         private void FixedUpdate()
         {
             transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
-            m_rigidbody2D.velocity = m_direction * Velocity + PlatformController.Rigidbody2D.velocity;
+            m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
             {
@@ -117,7 +116,6 @@ namespace Logic.Core.PlayerController
                         bait.transform.position = BaitHolder.position;
                         bait.gameObject.layer = LayerMask.NameToLayer("Default");
                         bait.gameObject.SetActive(true);
-                        bait.SetController(PlatformController);
                         m_holdingBait = bait;
                         State = State.Throwing;
                         m_holdingBait.Aim();
@@ -163,6 +161,11 @@ namespace Logic.Core.PlayerController
                 var axis = callbackContext.ReadValue<Vector2>();
                 m_angle = (int) (Mathf.Rad2Deg * Mathf.Atan2(axis.y , axis.x));
             }
+        }
+
+        public void OnHurt()
+        {
+            
         }
     }
 
