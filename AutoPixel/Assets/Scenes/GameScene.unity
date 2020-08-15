@@ -28075,6 +28075,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: uiroot
       objectReference: {fileID: 0}
+    - target: {fileID: 4049402917854546900, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.52622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049402917854546900, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.52622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049402917854546900, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.52622
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049402917854546900, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049402917854546900, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4049402918439369430, guid: a58b907184b643644b9cd34a4d9c7afb,
         type: 3}
       propertyPath: m_SizeDelta.x
