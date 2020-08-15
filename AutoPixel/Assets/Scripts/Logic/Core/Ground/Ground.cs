@@ -8,8 +8,6 @@ namespace Logic.Core.Ground
         public int Life = 4;
         public GroundType Type;
 
-        public int X, Y;
-
         public bool TimeDamage()
         {
             Life -= 2;
