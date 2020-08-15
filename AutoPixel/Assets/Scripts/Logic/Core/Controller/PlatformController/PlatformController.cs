@@ -1,40 +1,49 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Logic.Core.Controller.PlatformController
 {
     public class PlatformController : MonoBehaviour
     {
-        public Transform Target;
-        public float Velocity;
-        public float FloatingVelocity;
-        public float Duration;
+        public HashSet<Transform> Targets = new HashSet<Transform>();
+        public float ForceFactor;
+        public float FloatingFactor;
         public Rigidbody2D Rigidbody2D;
-        public Collider2D Collider2D;
-
-        private float m_movingTimer;
-        private Vector2 m_direction;
-        private bool m_isMoving = false;
         public void SetTarget(Transform target)
         {
-            Target = target;
-            m_direction = (target.position - transform.position).normalized;
-            Rigidbody2D.velocity = m_direction * Velocity;
-            m_movingTimer = 0;
+            Targets.Add(target);
             m_isMoving = true;
         }
 
+        public void RemoveTarget(Transform target)
+        {
+            Targets.Remove(target);
+        }
+
+        private bool m_isMoving = false;
         private void FixedUpdate()
         {
-            if (m_isMoving)
+            if (Targets.Count == 0)
             {
-                m_movingTimer += Time.fixedDeltaTime;
-                if (m_movingTimer >= Duration)
+                if (m_isMoving)
                 {
-                    Target = null;
-                    Rigidbody2D.velocity = Rigidbody2D.velocity.normalized * FloatingVelocity;
+                    Rigidbody2D.velocity = Rigidbody2D.velocity.normalized * FloatingFactor;
                     m_isMoving = false;
                 }
+            }
+            else
+            {
+                //Vector2 direction = Vector2.zero;
+                foreach (var target in Targets)
+                {
+                    //direction += (Vector2)(target.position - transform.position);
+                    Rigidbody2D.AddForceAtPosition((target.position - transform.position).normalized * ForceFactor, target.position);
+                }
+
+                //direction = direction.normalized * ForceFactor;
+                
+                
             }
         }
     }
