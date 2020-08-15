@@ -5,27 +5,31 @@ namespace Logic.Core.Ground
 {
     public class Ground : MonoBehaviour
     {
-        public bool Life = true;
-        
-        public GroundType Type;      
+        public int Life = 4;
+        public GroundType Type;
 
-        public int X, Y;        
+        public int X, Y;
 
-        public bool Damage()
+        public bool TimeDamage()
         {
-            if (Life)
+            Life -= 2;
+            if (Life > 0)
             {
-                Life = false;
                 return false;
             }
             else
             {
-                gameObject.SetActive(false); 
+                gameObject.SetActive(false);
                 return true;
             }
         }
 
         public void OnCorrode()
+        {
+
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
 
         }

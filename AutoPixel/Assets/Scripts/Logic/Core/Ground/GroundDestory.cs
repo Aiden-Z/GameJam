@@ -32,7 +32,7 @@ namespace Logic.Core.Ground
                             rn = Random.Range(0, size - 1);
                         } while (_Ground.GetComponentsInChildren<Ground>()[rn].Type != GroundType.Edge);
 
-                        if (_Ground.GetComponentsInChildren<Ground>()[rn].Damage())
+                        if (_Ground.GetComponentsInChildren<Ground>()[rn].TimeDamage())
                         {
                             int X = _Ground.GetComponentsInChildren<Ground>()[rn].X,
                             Y = _Ground.GetComponentsInChildren<Ground>()[rn].Y;
