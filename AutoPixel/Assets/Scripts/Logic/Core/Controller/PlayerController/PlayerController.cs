@@ -50,7 +50,7 @@ namespace Logic.Core.PlayerController
                     {
                         GameHud.Press(m_pressTimer, MaxPressingTime);
                         var progress = Mathf.Clamp01(m_pressTimer / MaxPressingTime);
-                        var rad = (transform.rotation.eulerAngles.z - 90) * Mathf.Deg2Rad;
+                        var rad = (transform.rotation.eulerAngles.z + 90) * Mathf.Deg2Rad;
                         var cosRad = Mathf.Cos(rad);
                         var sinRad = Mathf.Sin(rad);
                         var maxY = MaxThrowDistance * sinRad;
