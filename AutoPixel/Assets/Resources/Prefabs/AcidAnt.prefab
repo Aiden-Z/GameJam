@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackInterval: 2
-  AttackAnimation: {fileID: 0}
+  AcidAnimator: {fileID: 613647084}
 --- !u!1001 &6970795164205376354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,11 +113,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6619552874d084ddcacd467d14dae606, type: 3}
 --- !u!4 &613647086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
+    type: 3}
+  m_PrefabInstance: {fileID: 6970795164205376354}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &613647084 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6970795164682641806, guid: 6619552874d084ddcacd467d14dae606,
     type: 3}
   m_PrefabInstance: {fileID: 6970795164205376354}
   m_PrefabAsset: {fileID: 0}

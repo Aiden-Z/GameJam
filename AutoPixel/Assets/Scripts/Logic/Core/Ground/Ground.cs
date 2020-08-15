@@ -28,7 +28,7 @@ namespace Logic.Core.Ground
         private static readonly int Health1 = Animator.StringToHash("Health");
         private static readonly int AcidAffect = Animator.StringToHash("AcidAffect");
 
-        public bool IsAlive => Health >= 0;
+        public bool IsAlive => Health > 0;
 
         private void FixedUpdate()
         {
