@@ -23,32 +23,29 @@ namespace Logic.Core.Ground
             {
                 if (_Ground != null)
                 {
-                    int size = _Ground.transform.childCount;
-                    if (size > 0)
+                    int rn;
+                    do
                     {
-                        int rn;
-                        do
-                        {
-                            rn = Random.Range(0, size - 1);
-                        } while (_Ground.GetComponentsInChildren<Ground>()[rn].Type != GroundType.Edge);
+                        rn = Random.Range(0, 15);
+                    } while (_Ground.GetComponentsInChildren<Transform>()[rn].gameObject.activeSelf && _Ground.GetComponentsInChildren<Ground>()[rn].Type != GroundType.Edge);
 
-                        if (_Ground.GetComponentsInChildren<Ground>()[rn].TimeDamage())
+                    if (_Ground.GetComponentsInChildren<Ground>()[rn].TimeDamage())
+                    {
+                        int X = _Ground.GetComponentsInChildren<Ground>()[rn].X,
+                        Y = _Ground.GetComponentsInChildren<Ground>()[rn].Y;
+                        for (int i = -1; i <= 1; i += 2)
                         {
-                            int X = _Ground.GetComponentsInChildren<Ground>()[rn].X,
-                            Y = _Ground.GetComponentsInChildren<Ground>()[rn].Y;
-                            for (int i = -1; i <= 1; i += 2)
+                            for (int j = -1; j <= 1; j += 2)
                             {
-                                for (int j = -1; j <= 1; j += 2)
+                                if (X + i >= 0 && X + i < 4 && Y + j >= 0 && Y + j < 4)
                                 {
-                                    if (X + i >= 0 && X + i < 4 && Y + j >= 0 && Y + j < 4)
-                                    {
-                                        GameObject.Find($"G{X + i}{Y + j}").GetComponent<Ground>().Type
-                                            = GroundType.Inner;
-                                    }
+                                    GameObject.Find($"G{X + i}{Y + j}").GetComponent<Ground>().Type
+                                        = GroundType.Inner;
                                 }
                             }
                         }
                     }
+
                 }
                 yield return new WaitForSeconds(CheckTime);
             }
