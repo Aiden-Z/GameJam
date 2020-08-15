@@ -40,7 +40,7 @@ namespace Logic.Core.Ground
                             {
                                 for (int j = -1; j <= 1; j += 2)
                                 {
-                                    if (X + i >= 0 && X + i < 4 && Y + j >= 0 && Y + j < 5)
+                                    if (X + i >= 0 && X + i < 4 && Y + j >= 0 && Y + j < 4)
                                     {
                                         GameObject.Find($"G{X + i}{Y + j}").GetComponent<Ground>().Type
                                             = GroundType.Inner;

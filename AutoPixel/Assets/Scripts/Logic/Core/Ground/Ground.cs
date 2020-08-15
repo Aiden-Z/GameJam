@@ -25,6 +25,11 @@ namespace Logic.Core.Ground
             }
         }
 
+        public void OnCorrode()
+        {
+
+        }
+
         public enum GroundType
         {
             Edge,
