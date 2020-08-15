@@ -6,6 +6,7 @@ namespace Logic.UI
     public class GameHud : MonoBehaviour
     {
         public Image ThrowProgress;
+        public Text BaitsNum;
 
         public void Press(float curTime, float maxTime)
         {
@@ -16,6 +17,11 @@ namespace Logic.UI
         public void Release()
         {
             ThrowProgress.gameObject.SetActive(false);
+        }
+
+        public void SetBaitsNum(int num)
+        {
+            BaitsNum.text = $"{num}";
         }
     }
 }
