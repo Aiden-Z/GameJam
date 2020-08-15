@@ -47,8 +47,29 @@ namespace Logic.Core.Ant
         }
 
         private bool m_clearMark = false;
+        public float MaxAcidAntBornRadius;
+        public float MinAcidAntBornRadius;
+        public float AcidAntBornInterval;
+        private float m_acidAntBornTimer;
         private void FixedUpdate()
         {
+            if (m_acidAntBornTimer >= SendAntInterval)
+            {
+                var curRadius = Random.Range(MinAcidAntBornRadius, MaxAcidAntBornRadius);
+                var randomRad = Random.Range(0, Mathf.PI * 2);
+                var x = Mathf.Cos(randomRad) * curRadius;
+                var y = Mathf.Sin(randomRad) * curRadius;
+                var pos = new Vector3(x, y);
+                Instantiate(GameSceneManager.Instance.AcidAntTemplate, pos, Quaternion.identity,
+                    GameSceneManager.Instance.AcidBodyRoot);
+                m_acidAntBornTimer = 0;
+            }
+            else
+            {
+                m_acidAntBornTimer += Time.fixedDeltaTime;
+            }
+            
+            
             if (m_sendingTimer >= SendAntInterval)
             {
                 m_sendingTimer = 0;

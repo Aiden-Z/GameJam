@@ -16,10 +16,45 @@ namespace Logic.Core.Ground
             get => m_health;
         }
 
-        private int m_health;
+        [SerializeField]
+        private int m_health = 100;
+        private float m_timer;
+        private bool m_isAcidAffect = false;
+        public Sprite[] Normal;
+        public Sprite[] Toxic;
+        public float AcidDuration;
+        public SpriteRenderer SpriteRenderer;
         public Collider2D Collider2D;
+        private static readonly int Health1 = Animator.StringToHash("Health");
+        private static readonly int AcidAffect = Animator.StringToHash("AcidAffect");
 
         public bool IsAlive => Health >= 0;
+
+        private void FixedUpdate()
+        {
+            if (m_isAcidAffect)
+            {
+                m_timer += Time.fixedDeltaTime;
+                if (m_timer >= AcidDuration)
+                {
+                    m_isAcidAffect = false;
+                }
+            }
+
+            if (m_health > 0)
+            {
+                if (m_isAcidAffect)
+                {
+                    var index = m_health / 25 - 1;
+                    SpriteRenderer.sprite = Toxic[index];
+                }
+                else
+                {
+                    var index = m_health / 25 - 1;
+                    SpriteRenderer.sprite = Normal[index];
+                }
+            }
+        }
 
         public bool TimeDamage()
         {
@@ -30,7 +65,7 @@ namespace Logic.Core.Ground
             }
             else
             {   
-                gameObject.SetActive(false);
+                OnDead();
                 return true;
             }
         }
@@ -56,12 +91,17 @@ namespace Logic.Core.Ground
             {
                 Health -= 50;
                 GameSceneManager.Instance.ThrowBait(transform.position);
+                if (Health <= 0)
+                {
+                    OnDead();
+                }
             }
         }
 
         public void OnCorrode()
         {
             Health -= 50;
+            m_isAcidAffect = true;
             if (Health <= 0)
             {
                 OnDead();
@@ -71,6 +111,7 @@ namespace Logic.Core.Ground
         public void OnDead()
         {
             Collider2D.gameObject.layer = LayerMask.NameToLayer("PlayerBlock");
+            SpriteRenderer.enabled = false;
         }
 
         public enum GroundType

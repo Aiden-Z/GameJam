@@ -156,7 +156,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -1161552082389697816, guid: e153f40d3e01e4edd8315ffb25ba7c1d,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -181,9 +182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Lifetime: 3
   FlyingTime: 1
+  MaxRadius: 0
   SpriteRenderer: {fileID: 3375231039525524354}
   ShowingSprite: {fileID: 3375231038142056990}
-  Controller: {fileID: 0}
 --- !u!58 &-7795457760523250741
 CircleCollider2D:
   m_ObjectHideFlags: 0
