@@ -10,6 +10,7 @@ namespace Logic.UI
         public Image ThrowProgress;
         public Text BaitsNum;
         public Transform Pointer;
+        public Text StoneNum;
 
         public void Press(float curTime, float maxTime)
         {
@@ -32,6 +33,11 @@ namespace Logic.UI
         public void SetBaitsNum(int num)
         {
             BaitsNum.text = $"{num}";
+        }
+
+        public void SetStoneNum(int num)
+        {
+            StoneNum.text = $"{num}";
         }
     }
 }
