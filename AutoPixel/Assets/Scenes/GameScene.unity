@@ -1913,18 +1913,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &790299207 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-    type: 3}
-  m_PrefabInstance: {fileID: 1615724386}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 877e2db81d7e472bb02f76958f36f897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &919825279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3932,21 +3920,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1221438383}
     m_Modifications:
-    - target: {fileID: 3110545956611327352, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4089198685975940059, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: m_Name
       value: RolePlayer
       objectReference: {fileID: 0}
-    - target: {fileID: 4340460792334349706, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: Controller
-      value: 
-      objectReference: {fileID: 790299207}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: PlatformController
@@ -3962,11 +3940,6 @@ PrefabInstance:
       propertyPath: GameHud
       value: 
       objectReference: {fileID: 687545370}
-    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: MaxThrowDistance
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7821661775407424847, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: m_LocalPosition.x

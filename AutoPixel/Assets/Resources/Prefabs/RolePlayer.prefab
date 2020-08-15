@@ -93,7 +93,7 @@ MonoBehaviour:
   GroundFinder: {fileID: 1302716058160368128}
   CoolDown: 3
   MaxPressingTime: 2
-  MaxThrowDistance: 2.828
+  MaxThrowDistance: 5
   MinThrowDistance: 4
 --- !u!50 &1657322775488236763
 Rigidbody2D:
@@ -486,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8512467131276977687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7821661775407424847}
@@ -504,6 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1493b0ce6e0312e49925ebfbf0823b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 7392782726905266112}
 --- !u!58 &1615724391
 CircleCollider2D:
   m_ObjectHideFlags: 0
