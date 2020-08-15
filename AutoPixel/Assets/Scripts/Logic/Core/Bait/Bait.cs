@@ -67,6 +67,7 @@ namespace Logic.Core.Bait
                     m_dyingTimer += Time.fixedDeltaTime;
                     if (m_dyingTimer >= Lifetime)
                     {
+                        Controller.RemoveTarget(transform);
                         Destroy(gameObject);
                     }
                     break;
