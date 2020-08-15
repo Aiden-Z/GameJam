@@ -23,6 +23,7 @@ namespace Logic.Core.PlayerController
         public GroundFinder GroundFinder;
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
+        Animator anim;
         
         private Queue<Bait.Bait> m_collectedBait = new Queue<Bait.Bait>();
 
@@ -32,6 +33,7 @@ namespace Logic.Core.PlayerController
             m_rigidbody2D = GetComponent<Rigidbody2D>();
             State = State.Idle;
             GameHud.SetBaitsNum(0);
+            anim = GetComponent<Animator>();
         }
 
         public float CoolDown;
@@ -43,7 +45,7 @@ namespace Logic.Core.PlayerController
         private Bait.Bait m_holdingBait;
         private void FixedUpdate()
         {
-            transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+           // transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -79,6 +81,8 @@ namespace Logic.Core.PlayerController
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             m_direction = callbackContext.ReadValue<Vector2>();
+            anim.SetFloat("x", m_direction.x);
+            anim.SetFloat("y", m_direction.y);
         }
 
         public void CollectBait(Bait.Bait bait)
