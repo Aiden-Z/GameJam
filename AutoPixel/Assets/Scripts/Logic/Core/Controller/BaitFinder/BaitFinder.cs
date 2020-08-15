@@ -6,11 +6,9 @@ namespace Logic.Core.Controller.BaitFinder
 {
     public class BaitFinder : MonoBehaviour
     {
-        public PlayerController.PlayerController Controller;
-
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Controller.CollectBait(other.GetComponent<Bait.Bait>());
+            GameSceneManager.Instance.PlayerController.Collect(other.GetComponent<Collectable>());
         }
     }
 }

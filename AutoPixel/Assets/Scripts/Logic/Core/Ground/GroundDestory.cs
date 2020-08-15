@@ -8,49 +8,40 @@ namespace Logic.Core.Ground
 {
     public class GroundDestory : MonoBehaviour
     {
-
-        public GameObject _Ground;
         public float CheckTime;
+        private readonly List<int> Num
+            = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+
+        public List<GameObject> objects;
 
         void Start()
         {
-            StartCoroutine("TimeDestory");
+            InvokeRepeating("TimeDestory", 0, CheckTime);
         }
 
-        private IEnumerator TimeDestory()
+        private void TimeDestory()
         {
-            while (true)
+            int rn;
+            do
             {
-                if (_Ground != null)
-                {
-                    int size = _Ground.transform.childCount;
-                    if (size > 0)
-                    {
-                        int rn;
-                        do
-                        {
-                            rn = Random.Range(0, size - 1);
-                        } while (_Ground.GetComponentsInChildren<Ground>()[rn].Type != GroundType.Edge);
+                rn = Random.Range(0, Num.Count - 1);
+            } while (!(objects[Num[rn]].gameObject.activeSelf
+                    && objects[Num[rn]].GetComponent<Ground>().Type == GroundType.Edge));
 
-                        if (_Ground.GetComponentsInChildren<Ground>()[rn].TimeDamage())
-                        {
-                            int X = _Ground.GetComponentsInChildren<Ground>()[rn].X,
-                            Y = _Ground.GetComponentsInChildren<Ground>()[rn].Y;
-                            for (int i = -1; i <= 1; i += 2)
-                            {
-                                for (int j = -1; j <= 1; j += 2)
-                                {
-                                    if (X + i >= 0 && X + i < 4 && Y + j >= 0 && Y + j < 4)
-                                    {
-                                        GameObject.Find($"G{X + i}{Y + j}").GetComponent<Ground>().Type
-                                            = GroundType.Inner;
-                                    }
-                                }
-                            }
-                        }
+            if (objects[Num[rn]].GetComponent<Ground>().TimeDamage())
+            {
+                for (int i = 1; i <= 4; i += 3)
+                {
+                    if (Num[rn] + i >= 0 && Num[rn] + i <= 15)
+                    {
+                        objects[Num[rn] + i].GetComponent<Ground>().Type = GroundType.Edge;
+                    }
+                    if (Num[rn] - i >= 0 && Num[rn] - i <= 15)
+                    {
+                        objects[Num[rn] - i].GetComponent<Ground>().Type = GroundType.Edge;
                     }
                 }
-                yield return new WaitForSeconds(CheckTime);
+                Num.RemoveAt(rn);
             }
         }
     }

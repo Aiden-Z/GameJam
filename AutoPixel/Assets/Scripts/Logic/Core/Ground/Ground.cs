@@ -6,25 +6,30 @@ namespace Logic.Core.Ground
 {
     public class Ground : MonoBehaviour
     {
-        public int Life = 4;
         public GroundType Type;
 
         public int X, Y;
 
-        public int Health;
+        public int Health
+        {
+            set => m_health = value;
+            get => m_health;
+        }
+
+        private int m_health;
         public Collider2D Collider2D;
 
         public bool IsAlive => Health >= 0;
 
         public bool TimeDamage()
         {
-            Life -= 2;
-            if (Life > 0)
+            Health -= 50;
+            if (Health > 0)
             {
                 return false;
             }
             else
-            {
+            {   
                 gameObject.SetActive(false);
                 return true;
             }
@@ -35,6 +40,22 @@ namespace Logic.Core.Ground
             if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
             {
                 Health -= 25;
+            }
+        }
+
+        public void Knock()
+        {
+            if (m_health <= 50)
+            {
+                if (GameSceneManager.Instance.PlayerController.ConsumeStone())
+                {
+                    Health += 50;
+                }
+            }
+            else
+            {
+                Health -= 50;
+                GameSceneManager.Instance.ThrowBait(transform.position);
             }
         }
 
@@ -50,11 +71,6 @@ namespace Logic.Core.Ground
         public void OnDead()
         {
             Collider2D.gameObject.layer = LayerMask.NameToLayer("PlayerBlock");
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-
         }
 
         public enum GroundType

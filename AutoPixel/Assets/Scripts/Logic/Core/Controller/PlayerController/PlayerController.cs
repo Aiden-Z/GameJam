@@ -25,7 +25,11 @@ namespace Logic.Core.PlayerController
         private Rigidbody2D m_rigidbody2D;
         Animator anim;
         
-        private Queue<Bait.Bait> m_collectedBait = new Queue<Bait.Bait>();
+        private Dictionary<Type, Queue<Collectable>> m_collected = new Dictionary<Type, Queue<Collectable>>
+        {
+            {typeof(Bait.Bait), new Queue<Collectable>()},
+            {typeof(Stone), new Queue<Collectable>()}
+        };
 
         private void Awake()
         {
@@ -43,9 +47,12 @@ namespace Logic.Core.PlayerController
         private float m_timer;
         private float m_pressTimer;
         private Bait.Bait m_holdingBait;
+        [SerializeField] GameObject rotate;
+
         private void FixedUpdate()
+        
         {
-           // transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+            rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -85,16 +92,17 @@ namespace Logic.Core.PlayerController
             anim.SetFloat("y", m_direction.y);
         }
 
-        public void CollectBait(Bait.Bait bait)
+        public void Collect(Collectable collectable)
         {
-            m_collectedBait.Enqueue(bait);
-            bait.gameObject.SetActive(false);
-            GameHud.SetBaitsNum(m_collectedBait.Count);
+            m_collected[typeof(Collectable)].Enqueue(collectable);
+            collectable.gameObject.SetActive(false);
+            GameHud.SetBaitsNum(m_collected.Count);
         }
 
         private InputActionPhase m_fireTriggerPhase;
         public void OnFire(InputAction.CallbackContext callbackContext)
         {
+
             m_fireTriggerPhase = callbackContext.phase;
             switch (callbackContext.phase)
             {
@@ -102,7 +110,7 @@ namespace Logic.Core.PlayerController
                     if (State != State.Throwing && m_timer >= CoolDown)
                     {
                         Bait.Bait bait;
-                        if (m_collectedBait.Count == 0)
+                        if (m_collected.Count == 0)
                         {
 #if DEBUG && UNITY_EDITOR
                             bait = Instantiate(BaitTemplate, BaitRoot);
@@ -112,8 +120,8 @@ namespace Logic.Core.PlayerController
                         }
                         else
                         {
-                            bait = m_collectedBait.Dequeue();
-                            GameHud.SetBaitsNum(m_collectedBait.Count);
+                            bait = (Bait.Bait) m_collected[typeof(Bait.Bait)].Dequeue();
+                            GameHud.SetBaitsNum(m_collected.Count);
                         }
                         
                         State = State.Holding;
@@ -166,10 +174,38 @@ namespace Logic.Core.PlayerController
                 m_angle = (int) (Mathf.Rad2Deg * Mathf.Atan2(axis.y , axis.x));
             }
         }
+  
+
+        public void OnKnock(InputAction.CallbackContext callbackContext)
+        {
+            if (callbackContext.phase == InputActionPhase.Started)
+            {
+                var ground = GroundFinder.GetGround(transform.position);
+                ground.Knock();
+            }
+        }
 
         public void OnHurt()
         {
             
+        }
+
+        public void AddStone(Collectable stone)
+        {
+            m_collected[typeof(Stone)].Enqueue(stone);
+        }
+
+        public bool ConsumeStone()
+        {
+            var queue = m_collected[typeof(Stone)];
+            if (queue.Count != 0)
+            {
+                var stone = queue.Dequeue();
+                Destroy(stone.gameObject);
+                return true;
+            }
+
+            return false;
         }
     }
 

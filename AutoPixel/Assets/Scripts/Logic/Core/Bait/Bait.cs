@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Logic.Core.Bait
 {
-    public class Bait : MonoBehaviour
+    public class Bait : Collectable
     {
         public float Lifetime;
         public float FlyingTime;
