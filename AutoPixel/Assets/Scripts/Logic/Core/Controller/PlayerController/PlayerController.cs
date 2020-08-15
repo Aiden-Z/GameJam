@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Logic.Core.Controller.BaitFinder;
 using Logic.Core.Controller.GroundFinder;
 using Logic.Core.Controller.PlatformController;
@@ -6,6 +7,7 @@ using Logic.UI;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Logic.Core.PlayerController
 {
@@ -22,12 +24,15 @@ namespace Logic.Core.PlayerController
         public GroundFinder GroundFinder;
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
+        
+        private Queue<Bait.Bait> m_collectedBait = new Queue<Bait.Bait>();
 
         private void Awake()
         {
             m_collider2D = GetComponent<Collider2D>();
             m_rigidbody2D = GetComponent<Rigidbody2D>();
             State = State.Idle;
+            GameHud.SetBaitsNum(0);
         }
 
         public float CoolDown;
@@ -77,6 +82,13 @@ namespace Logic.Core.PlayerController
             m_direction = callbackContext.ReadValue<Vector2>();
         }
 
+        public void CollectBait(Bait.Bait bait)
+        {
+            m_collectedBait.Enqueue(bait);
+            bait.gameObject.SetActive(false);
+            GameHud.SetBaitsNum(m_collectedBait.Count);
+        }
+
         private InputActionPhase m_fireTriggerPhase;
         public void OnFire(InputAction.CallbackContext callbackContext)
         {
@@ -84,8 +96,28 @@ namespace Logic.Core.PlayerController
             switch (callbackContext.phase)
             {
                 case InputActionPhase.Started:
-                    if (State == State.Holding && m_timer >= CoolDown)
+                    if (State != State.Throwing && m_timer >= CoolDown)
                     {
+                        Bait.Bait bait;
+                        if (m_collectedBait.Count == 0)
+                        {
+#if DEBUG && UNITY_EDITOR
+                            bait = Instantiate(BaitTemplate, BaitRoot);
+#else
+                            break;
+#endif
+                        }
+                        else
+                        {
+                            bait = m_collectedBait.Dequeue();
+                        }
+                        
+                        State = State.Holding;
+                        bait.transform.position = BaitHolder.position;
+                        bait.gameObject.layer = LayerMask.NameToLayer("Default");
+                        bait.gameObject.SetActive(true);
+                        bait.SetController(PlatformController);
+                        m_holdingBait = bait;
                         State = State.Throwing;
                         m_holdingBait.Aim();
                         m_pressTimer = 0;
@@ -129,30 +161,6 @@ namespace Logic.Core.PlayerController
             {
                 var axis = callbackContext.ReadValue<Vector2>();
                 m_angle = (int) (Mathf.Rad2Deg * Mathf.Atan2(axis.y , axis.x));
-            }
-        }
-
-        public void OnGrab(InputAction.CallbackContext callbackContext)
-        {
-            if (callbackContext.phase == InputActionPhase.Started)
-            {
-                if (State == State.Holding)
-                {
-                    State = State.Idle;
-                    m_holdingBait.Drop();
-                }
-                else
-                {
-                    var bait = BaitFinder.GetBait(transform.position);
-                    if (bait != null)
-                    {
-                        State = State.Holding;
-                        bait.transform.position = BaitHolder.position;
-                        bait.SetController(PlatformController);
-                        bait.Grab(BaitHolder);
-                        m_holdingBait = bait;
-                    }
-                }
             }
         }
     }
