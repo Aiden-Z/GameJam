@@ -7,3 +7,4 @@ AutoPixel/.vs/
 *.user
 AutoPixel/obj/
 AutoPixel/iosProj/
+AutoPixel/Packages/packages-lock.json
