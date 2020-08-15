@@ -7191,6 +7191,7 @@ Transform:
   - {fileID: 142348872}
   - {fileID: 1460166319}
   - {fileID: 788886955}
+  - {fileID: 1502562069}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7208,18 +7209,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlatformController: {fileID: 1221438384}
   PlayerController: {fileID: 895451441}
-  AcidBodyRoot: {fileID: 0}
-  AcidBodyTemplate: {fileID: 0}
+  AcidBodyRoot: {fileID: 1502562069}
+  AcidBodyTemplate: {fileID: 3895094068024388997, guid: 6d8ffcb9a65313a428eac15cf9476522,
+    type: 3}
   AntTemplate: {fileID: 4171867515704866900, guid: a98b5a736fe037748beb11e17c85804b,
     type: 3}
   AntManager: {fileID: 1577817424}
-  radius: 0
+  radius: 1
   BaitTemplate: {fileID: 3375231039525524355, guid: 41086809eb964064792af5c5adcd9881,
     type: 3}
   BaitRoot: {fileID: 2002963898}
   FinishPoint: {fileID: 788886956}
-  MaxThrowBaitsNum: 0
-  MinThrowBaitsNum: 0
+  MaxThrowBaitsNum: 7
+  MinThrowBaitsNum: 4
+  AcidAntTemplate: {fileID: -5672201844214790535, guid: 2b9ceac04a2e933429446f5320d330a3,
+    type: 3}
 --- !u!213 &366955626
 Sprite:
   m_ObjectHideFlags: 0
@@ -28731,6 +28735,36 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1 &1502562068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502562069}
+  m_Layer: 0
+  m_Name: acidAntRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502562069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502562068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 362338260}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!213 &1510934675
 Sprite:
   m_ObjectHideFlags: 0
@@ -29575,6 +29609,9 @@ MonoBehaviour:
   MaxAnts: 10
   AntsSurroundRadius: 2
   AntsBornPoint: {fileID: 1577817425}
+  MaxAcidAntBornRadius: 0
+  MinAcidAntBornRadius: 0
+  AcidAntBornInterval: 0
 --- !u!4 &1577817425
 Transform:
   m_ObjectHideFlags: 0
