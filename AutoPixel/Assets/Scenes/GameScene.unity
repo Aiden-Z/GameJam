@@ -4381,28 +4381,8 @@ PrefabInstance:
       objectReference: {fileID: 687545370}
     - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
-      propertyPath: CoolDown
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: Velocity
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: MinThrowDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
       propertyPath: MaxThrowDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
-        type: 3}
-      propertyPath: MaxPressingTime
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7821661775407424847, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
