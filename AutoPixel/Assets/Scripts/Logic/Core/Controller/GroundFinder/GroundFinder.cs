@@ -22,7 +22,7 @@ namespace Logic.Core.Controller.GroundFinder
             m_baits.Remove(other);
         }
 
-        public Ground.Ground GetBait(Vector3 position)
+        public Ground.Ground GetGround(Vector3 position)
         {
             var distance = float.MaxValue;
             Ground.Ground ret = null;

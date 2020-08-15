@@ -24,7 +24,11 @@ namespace Logic.Core.PlayerController
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
         
-        private Queue<Bait.Bait> m_collectedBait = new Queue<Bait.Bait>();
+        private Dictionary<Type, Queue<Collectable>> m_collected = new Dictionary<Type, Queue<Collectable>>
+        {
+            {typeof(Bait.Bait), new Queue<Collectable>()},
+            {typeof(Stone), new Queue<Collectable>()}
+        };
 
         private void Awake()
         {
@@ -81,11 +85,11 @@ namespace Logic.Core.PlayerController
             m_direction = callbackContext.ReadValue<Vector2>();
         }
 
-        public void CollectBait(Bait.Bait bait)
+        public void Collect(Collectable collectable)
         {
-            m_collectedBait.Enqueue(bait);
-            bait.gameObject.SetActive(false);
-            GameHud.SetBaitsNum(m_collectedBait.Count);
+            m_collected[typeof(Collectable)].Enqueue(collectable);
+            collectable.gameObject.SetActive(false);
+            GameHud.SetBaitsNum(m_collected.Count);
         }
 
         private InputActionPhase m_fireTriggerPhase;
@@ -98,7 +102,7 @@ namespace Logic.Core.PlayerController
                     if (State != State.Throwing && m_timer >= CoolDown)
                     {
                         Bait.Bait bait;
-                        if (m_collectedBait.Count == 0)
+                        if (m_collected.Count == 0)
                         {
 #if DEBUG && UNITY_EDITOR
                             bait = Instantiate(BaitTemplate, BaitRoot);
@@ -108,8 +112,8 @@ namespace Logic.Core.PlayerController
                         }
                         else
                         {
-                            bait = m_collectedBait.Dequeue();
-                            GameHud.SetBaitsNum(m_collectedBait.Count);
+                            bait = (Bait.Bait) m_collected[typeof(Bait.Bait)].Dequeue();
+                            GameHud.SetBaitsNum(m_collected.Count);
                         }
                         
                         State = State.Holding;
@@ -163,9 +167,36 @@ namespace Logic.Core.PlayerController
             }
         }
 
+        public void OnKnock(InputAction.CallbackContext callbackContext)
+        {
+            if (callbackContext.phase == InputActionPhase.Started)
+            {
+                var ground = GroundFinder.GetGround(transform.position);
+                ground.Knock();
+            }
+        }
+
         public void OnHurt()
         {
             
+        }
+
+        public void AddStone(Collectable stone)
+        {
+            m_collected[typeof(Stone)].Enqueue(stone);
+        }
+
+        public bool ConsumeStone()
+        {
+            var queue = m_collected[typeof(Stone)];
+            if (queue.Count != 0)
+            {
+                var stone = queue.Dequeue();
+                Destroy(stone.gameObject);
+                return true;
+            }
+
+            return false;
         }
     }
 

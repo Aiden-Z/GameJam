@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 2750093421521563572}
   - component: {fileID: 6406155470072401810}
   - component: {fileID: 8158745832998650489}
+  - component: {fileID: 1764684111}
+  - component: {fileID: 1764684110}
   m_Layer: 13
   m_Name: RolePlayer
   m_TagString: Untagged
@@ -81,8 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877e2db81d7e472bb02f76958f36f897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 1
-  PlatformController: {fileID: 0}
+  Velocity: 2
   BaitRoot: {fileID: 0}
   BaitTemplate: {fileID: 3375231039525524355, guid: 41086809eb964064792af5c5adcd9881,
     type: 3}
@@ -91,10 +92,10 @@ MonoBehaviour:
   BaitHolder: {fileID: 965162566}
   BaitFinder: {fileID: 4340460792334349706}
   GroundFinder: {fileID: 1302716058160368128}
-  CoolDown: 3
-  MaxPressingTime: 2
-  MaxThrowDistance: 5
-  MinThrowDistance: 4
+  CoolDown: 0.5
+  MaxPressingTime: 0.6
+  MaxThrowDistance: 15
+  MinThrowDistance: 5
 --- !u!50 &1657322775488236763
 Rigidbody2D:
   serializedVersion: 4
@@ -262,6 +263,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 55132c75-bb5e-4b24-89cf-215bc5fcb204
     m_ActionName: Player/Grab[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7392782726905266112}
+        m_TargetAssemblyTypeName: Logic.Core.PlayerController.PlayerController, Assembly-CSharp
+        m_MethodName: OnKnock
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a310fe2-e739-451f-bce3-9870544e944e
+    m_ActionName: Player/Knock[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -304,20 +321,56 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -760251593
+  m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -5725962078152895296, guid: 374fdb2d180294b608acbf9a024ad3cf,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!111 &1764684111
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089198685975940059}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 0}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &1764684110
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4089198685975940059}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 904d50a7daf0a4fdb8c861d59ed94b55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5625211935434613118
 GameObject:
   m_ObjectHideFlags: 0

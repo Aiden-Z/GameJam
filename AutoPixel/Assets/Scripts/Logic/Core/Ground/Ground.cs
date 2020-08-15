@@ -11,7 +11,13 @@ namespace Logic.Core.Ground
 
         public int X, Y;
 
-        public int Health;
+        public int Health
+        {
+            set => m_health = value;
+            get => m_health;
+        }
+
+        private int m_health;
         public Collider2D Collider2D;
 
         public bool IsAlive => Health >= 0;
@@ -35,6 +41,22 @@ namespace Logic.Core.Ground
             if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
             {
                 Health -= 25;
+            }
+        }
+
+        public void Knock()
+        {
+            if (m_health <= 50)
+            {
+                if (GameSceneManager.Instance.PlayerController.ConsumeStone())
+                {
+                    Health += 50;
+                }
+            }
+            else
+            {
+                Health -= 50;
+                GameSceneManager.Instance.ThrowBait(transform.position);
             }
         }
 
