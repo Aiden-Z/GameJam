@@ -1,7 +1,85 @@
 fileFormatVersion: 2
 guid: c1a6a07bbebc1427fa0ca03065e8febf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2265209605882972524
+    second: ant 1x_0
+  - first:
+      213: 4196047597918283796
+    second: ant 1x_1
+  - first:
+      213: 4142691685675033115
+    second: ant 1x_2
+  - first:
+      213: 6420936944595407924
+    second: ant 1x_3
+  - first:
+      213: -4638635553951955134
+    second: ant 1x_4
+  - first:
+      213: -2840724723040973103
+    second: ant 1x_5
+  - first:
+      213: 4466446063599109010
+    second: ant 1x_6
+  - first:
+      213: 1246561662603397913
+    second: ant 1x_7
+  - first:
+      213: -7014245106236123138
+    second: ant 1x_8
+  - first:
+      213: 7013547051557196564
+    second: ant 1x_9
+  - first:
+      213: 7475670899854588191
+    second: ant 1x_10
+  - first:
+      213: 7161601647252864489
+    second: ant 1x_11
+  - first:
+      213: -4097239175441104550
+    second: ant 1x_12
+  - first:
+      213: -8336770891549057443
+    second: ant 1x_13
+  - first:
+      213: -8822133890161447558
+    second: ant 1x_14
+  - first:
+      213: 277300786475570082
+    second: ant 1x_15
+  - first:
+      213: 3518671602065583073
+    second: ant 1x_16
+  - first:
+      213: 7189893234991883334
+    second: ant 1x_17
+  - first:
+      213: 7479173768850749950
+    second: ant 1x_18
+  - first:
+      213: -3973687376927580421
+    second: ant 1x_19
+  - first:
+      213: 4934576243127859247
+    second: ant 1x_20
+  - first:
+      213: 8097884898145242036
+    second: ant 1x_21
+  - first:
+      213: 4716483090586411426
+    second: ant 1x_22
+  - first:
+      213: 1688582387389079943
+    second: ant 1x_23
+  - first:
+      213: -2303406337208162245
+    second: ant 1x_0
+  - first:
+      213: -7644447001255970892
+    second: ant 1x_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +119,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,9 +151,129 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ant 1x_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 68
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38e259e328a800e0800000000000000
+      internalID: -2303406337208162245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant 1x_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 68
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b776d154f779e590800000000000000
+      internalID: -7644447001255970892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant 1x_2
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b12ef92a32ccd7930800000000000000
+      internalID: 4142691685675033115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant 1x_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 8
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4349acba120cb1950800000000000000
+      internalID: 6420936944595407924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
