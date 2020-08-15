@@ -26,13 +26,22 @@ namespace Logic.Core.Bait
             Controller = controller;
         }
 
-        public void Hold(Transform parent)
+        private Transform m_relativeTransform;
+        public void Aim()
         {
-            transform.SetParent(parent);
-            transform.localPosition = Vector3.zero;
             m_dyingTimer = 0;
-            State = BaitState.Holding;
+            State = BaitState.Aiming;
             ShowingSprite.gameObject.SetActive(false);
+        }
+
+        public void Grab(Transform parent)
+        {
+            m_relativeTransform = parent;
+        }
+
+        public void Drop()
+        {
+            State = BaitState.Idle;
         }
 
         private Vector3 m_from;
@@ -52,7 +61,13 @@ namespace Logic.Core.Bait
             var color = SpriteRenderer.color;
             switch (State)
             {
-                case BaitState.Holding:
+                case BaitState.Idle:
+                    if (m_relativeTransform != null)
+                    {
+                        transform.position = m_relativeTransform.position;
+                    }
+                    break;
+                case BaitState.Aiming:
                     SpriteRenderer.color = new Color(color.r, color.g, color.b, 0.5f);
                     break;
                 case BaitState.Flying:
@@ -79,7 +94,7 @@ namespace Logic.Core.Bait
     public enum BaitState
     {
         Idle,
-        Holding,
+        Aiming,
         Flying,
         Dying
     }

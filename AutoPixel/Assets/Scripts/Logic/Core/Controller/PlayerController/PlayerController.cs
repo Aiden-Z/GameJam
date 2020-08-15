@@ -62,6 +62,13 @@ namespace Logic.Core.PlayerController
                     }
                     break;
             }
+
+            switch (State)
+            {
+                case State.Holding:
+                    m_holdingBait.transform.position = BaitHolder.position;
+                    break;
+            }
         }
 
         private Vector2 m_direction;
@@ -80,6 +87,7 @@ namespace Logic.Core.PlayerController
                     if (State == State.Holding && m_timer >= CoolDown)
                     {
                         State = State.Throwing;
+                        m_holdingBait.Aim();
                         m_pressTimer = 0;
                     }
                     break;
@@ -128,14 +136,22 @@ namespace Logic.Core.PlayerController
         {
             if (callbackContext.phase == InputActionPhase.Started)
             {
-                var bait = BaitFinder.GetBait(transform.position);
-                if (bait != null)
+                if (State == State.Holding)
                 {
-                    State = State.Holding;
-                    bait.transform.SetParent(BaitHolder);
-                    bait.transform.localPosition = Vector3.zero;
-                    bait.SetController(PlatformController);
-                    m_holdingBait = bait;
+                    State = State.Idle;
+                    m_holdingBait.Drop();
+                }
+                else
+                {
+                    var bait = BaitFinder.GetBait(transform.position);
+                    if (bait != null)
+                    {
+                        State = State.Holding;
+                        bait.transform.position = BaitHolder.position;
+                        bait.SetController(PlatformController);
+                        bait.Grab(BaitHolder);
+                        m_holdingBait = bait;
+                    }
                 }
             }
         }
