@@ -23,6 +23,7 @@ namespace Logic.Core.PlayerController
         public GroundFinder GroundFinder;
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
+        Animator anim;
         
         private Dictionary<Type, Queue<Collectable>> m_collected = new Dictionary<Type, Queue<Collectable>>
         {
@@ -36,6 +37,7 @@ namespace Logic.Core.PlayerController
             m_rigidbody2D = GetComponent<Rigidbody2D>();
             State = State.Idle;
             GameHud.SetBaitsNum(0);
+            anim = GetComponent<Animator>();
         }
 
         public float CoolDown;
@@ -45,9 +47,12 @@ namespace Logic.Core.PlayerController
         private float m_timer;
         private float m_pressTimer;
         private Bait.Bait m_holdingBait;
+        [SerializeField] GameObject rotate;
+
         private void FixedUpdate()
+        
         {
-            transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+            rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -83,6 +88,8 @@ namespace Logic.Core.PlayerController
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             m_direction = callbackContext.ReadValue<Vector2>();
+            anim.SetFloat("x", m_direction.x);
+            anim.SetFloat("y", m_direction.y);
         }
 
         public void Collect(Collectable collectable)
@@ -95,6 +102,7 @@ namespace Logic.Core.PlayerController
         private InputActionPhase m_fireTriggerPhase;
         public void OnFire(InputAction.CallbackContext callbackContext)
         {
+
             m_fireTriggerPhase = callbackContext.phase;
             switch (callbackContext.phase)
             {
@@ -166,6 +174,7 @@ namespace Logic.Core.PlayerController
                 m_angle = (int) (Mathf.Rad2Deg * Mathf.Atan2(axis.y , axis.x));
             }
         }
+  
 
         public void OnKnock(InputAction.CallbackContext callbackContext)
         {
