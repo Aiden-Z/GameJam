@@ -52,10 +52,25 @@ namespace Logic.Core.PlayerController
         [SerializeField] GameObject rotate;
 
         private void FixedUpdate()
-        
         {
             rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             Canvas.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
+            if (m_angle >= -45 && m_angle < 0 || m_angle < 45 && m_angle >= 0)
+            {
+                anim.SetInteger(Direction, 4);
+            }
+            else if (m_angle >= 45 && m_angle < 135)
+            {
+                anim.SetInteger(Direction, 1);
+            }
+            else if (m_angle >= 135 && m_angle <= 180 || m_angle < -135 && m_angle >= -180)
+            {
+                anim.SetInteger(Direction, 2);
+            }
+            else
+            {
+                anim.SetInteger(Direction, 3);
+            }
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
             switch (m_fireTriggerPhase)
@@ -93,8 +108,6 @@ namespace Logic.Core.PlayerController
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             m_direction = callbackContext.ReadValue<Vector2>();
-            anim.SetFloat("x", m_direction.x);
-            anim.SetFloat("y", m_direction.y);
         }
 
         public void Collect(Collectable collectable)
@@ -158,6 +171,8 @@ namespace Logic.Core.PlayerController
         }
 
         private int m_angle;
+        private static readonly int Direction = Animator.StringToHash("Direction");
+
         public void OnLook(InputAction.CallbackContext callbackContext)
         {
             if (callbackContext.control.device == Pointer.current || callbackContext.control.device == Mouse.current)
@@ -217,7 +232,7 @@ namespace Logic.Core.PlayerController
 
     public enum State
     {
-        Idle,
+        Idle = 0,
         Holding,
         Throwing
     }
