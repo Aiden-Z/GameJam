@@ -26,13 +26,15 @@ namespace Logic.Core.Controller.PlatformController
 
             if (Target != null)
             {
-                var deltaPos = (Vector3) m_direction * (Velocity * Time.fixedDeltaTime);
-                transform.position += deltaPos;
+                Rigidbody2D.velocity = m_direction * Velocity;
+//                var deltaPos = (Vector3) m_direction * (Velocity * Time.fixedDeltaTime);
+//                transform.position += deltaPos;
             }
             else
             {
-                var deltaPos = (Vector3) m_direction * (Velocity * 0.3f * Time.fixedDeltaTime);
-                transform.position += deltaPos;
+                Rigidbody2D.velocity = m_direction * Velocity;
+//                var deltaPos = (Vector3) m_direction * (Velocity * 0.3f * Time.fixedDeltaTime);
+//                transform.position += deltaPos;
             }
 
             if (m_movingTimer >= Duration)
