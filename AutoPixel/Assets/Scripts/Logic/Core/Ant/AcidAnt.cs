@@ -8,9 +8,11 @@ namespace Logic.Core.Ant
     public class AcidAnt : MonoBehaviour
     {
         public float AttackInterval;
-        public Animation AttackAnimation;
+        public Animator AcidAnimator;
 
         private float m_attackTimer;
+        private static readonly int Attack = Animator.StringToHash("Attack");
+
         private void FixedUpdate()
         {
             m_attackTimer += Time.fixedDeltaTime;
@@ -22,7 +24,7 @@ namespace Logic.Core.Ant
                 var acidBody = Instantiate(GameSceneManager.Instance.AcidBodyTemplate, Vector3.zero,
                     Quaternion.identity, GameSceneManager.Instance.AcidBodyRoot);
                 acidBody.Target = targetGround.transform;
-                AttackAnimation.Play();
+                AcidAnimator.SetTrigger(Attack);
             }
         }
     }

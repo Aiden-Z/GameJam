@@ -21,28 +21,30 @@ namespace Logic.Core.Ground
 
         private void TimeDestory()
         {
-            int rn;
-            do
-            {
-                rn = Random.Range(0, Num.Count - 1);
-            } while (!(objects[Num[rn]].gameObject.activeSelf
-                    && objects[Num[rn]].GetComponent<Ground>().Type == GroundType.Edge));
-
-            if (objects[Num[rn]].GetComponent<Ground>().TimeDamage())
-            {
-                for (int i = 1; i <= 4; i += 3)
-                {
-                    if (Num[rn] + i >= 0 && Num[rn] + i <= 15)
-                    {
-                        objects[Num[rn] + i].GetComponent<Ground>().Type = GroundType.Edge;
-                    }
-                    if (Num[rn] - i >= 0 && Num[rn] - i <= 15)
-                    {
-                        objects[Num[rn] - i].GetComponent<Ground>().Type = GroundType.Edge;
-                    }
-                }
-                Num.RemoveAt(rn);
-            }
+            var ground = GameSceneManager.Instance.PlatformController.GetCanBeDestroyGround();
+            if (ground != null) ground.TimeDamage();
+//            int rn;
+//            do
+//            {
+//                rn = Random.Range(0, Num.Count - 1);
+//            } while (!(objects[Num[rn]].gameObject.activeSelf
+//                    && objects[Num[rn]].GetComponent<Ground>().Type == GroundType.Edge));
+//
+//            if (objects[Num[rn]].GetComponent<Ground>().TimeDamage())
+//            {
+//                for (int i = 1; i <= 4; i += 3)
+//                {
+//                    if (Num[rn] + i >= 0 && Num[rn] + i <= 15)
+//                    {
+//                        objects[Num[rn] + i].GetComponent<Ground>().Type = GroundType.Edge;
+//                    }
+//                    if (Num[rn] - i >= 0 && Num[rn] - i <= 15)
+//                    {
+//                        objects[Num[rn] - i].GetComponent<Ground>().Type = GroundType.Edge;
+//                    }
+//                }
+//                Num.RemoveAt(rn);
+//            }
         }
     }
 }
