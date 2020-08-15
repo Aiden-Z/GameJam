@@ -3938,6 +3938,11 @@ PrefabInstance:
       propertyPath: GameHud
       value: 
       objectReference: {fileID: 687545370}
+    - target: {fileID: 7392782726905266112, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: MaxThrowDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7821661775407424847, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: m_LocalPosition.x
