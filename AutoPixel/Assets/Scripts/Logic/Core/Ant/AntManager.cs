@@ -49,11 +49,10 @@ namespace Logic.Core.Ant
         private bool m_clearMark = false;
         private void FixedUpdate()
         {
-            //m_sendingTimer += Time.fixedDeltaTime;
             if (m_sendingTimer >= SendAntInterval)
             {
                 m_sendingTimer = 0;
-                var deleteingBaits = new List<Bait.Bait>();
+                var deletingBaits = new List<Bait.Bait>();
                 foreach (var sentAnt in m_sentAnts)
                 {
                     if (sentAnt.Key != null) // 还未消失
@@ -100,13 +99,13 @@ namespace Logic.Core.Ant
                     {
                         m_holdingAnts.AddRange(sentAnt.Value);
                         sentAnt.Value.Clear();
-                        deleteingBaits.Add(sentAnt.Key);
+                        deletingBaits.Add(sentAnt.Key);
                     }
                 }
 
-                foreach (var deleteingBait in deleteingBaits)
+                foreach (var deletingBait in deletingBaits)
                 {
-                    m_sentAnts.Remove(deleteingBait);
+                    m_sentAnts.Remove(deletingBait);
                 }
 
                 if (!m_clearMark)

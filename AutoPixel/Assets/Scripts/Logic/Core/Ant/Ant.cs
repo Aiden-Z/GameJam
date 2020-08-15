@@ -98,6 +98,8 @@ namespace Logic.Core.Ant
                         }
                         else
                         {
+                            var pos = Bait.GetRandomPoint();
+                            m_forwardDirection = (pos - transform.position).normalized;
                             transform.position += (Vector3) m_forwardDirection * (m_curVelocity * Time.fixedDeltaTime);
                         }
                     }
