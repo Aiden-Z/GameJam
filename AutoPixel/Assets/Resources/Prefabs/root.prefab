@@ -411,7 +411,7 @@ MonoBehaviour:
   MinThrowBaitsNum: 4
   AcidAntTemplate: {fileID: -5672201844214790535, guid: 2b9ceac04a2e933429446f5320d330a3,
     type: 3}
-  Camerashake: {fileID: 0}
+  Camerashake: {fileID: 2007350128794966930}
 --- !u!1 &2838219656936824710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1740,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: fa1a0d257ad260d4aba1663729554db2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &2838219658139002871
 CircleCollider2D:
@@ -2742,6 +2742,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2838219657055723008}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2007350128794966930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4375506467235480978, guid: 2fd3fe15990c8bd40b9de061f58abfe1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2838219657055723008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350159634376862894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337c2fbe1edf74fb295bfefbceb8e075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &7164252458638843132 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4904393720468947708, guid: 2fd3fe15990c8bd40b9de061f58abfe1,
