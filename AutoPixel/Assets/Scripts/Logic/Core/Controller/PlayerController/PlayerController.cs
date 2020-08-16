@@ -116,6 +116,7 @@ namespace Logic.Core.PlayerController
                     if (State == State.Throwing)
                     {
                         charaudio.clip = m_throw;
+                        charaudio.time = 0.2f;
                         charaudio.Play();
 
 
@@ -158,6 +159,7 @@ namespace Logic.Core.PlayerController
                     {
                         collectable.gameObject.SetActive(false);
                         charaudio.clip = m_pick;
+                        charaudio.time = 0.2f;
                         charaudio.Play();
                     }
                 }
