@@ -8,7 +8,7 @@ namespace Logic.UI
     public class GameHud : MonoBehaviour
     {
         public Image ThrowProgress;
-        public TextMesh BaitsNum;
+        public Text BaitsNum;
         public Transform Pointer;
         public Text StoneNum;
 
