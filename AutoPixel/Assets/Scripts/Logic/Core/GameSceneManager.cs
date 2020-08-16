@@ -24,6 +24,7 @@ namespace Logic.Core
         public int MaxThrowBaitsNum;
         public int MinThrowBaitsNum;
         public AcidAnt AcidAntTemplate;
+        public camerashake Camerashake;
 
         private void Awake()
         {
