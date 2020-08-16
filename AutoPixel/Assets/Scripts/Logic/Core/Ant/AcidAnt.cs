@@ -8,6 +8,7 @@ namespace Logic.Core.Ant
     public class AcidAnt : MonoBehaviour
     {
         public float AttackInterval;
+        public float AttackRadius;
         public Animator AcidAnimator;
         public Transform From;
 
@@ -19,8 +20,8 @@ namespace Logic.Core.Ant
             m_attackTimer += Time.fixedDeltaTime;
             if (m_attackTimer >= AttackInterval)
             {
+                if (Vector3.Distance(GameSceneManager.Instance.PlatformController.transform.position, transform.position) > AttackRadius) return;
                 m_attackTimer = 0;
-                
                 var targetGround = GameSceneManager.Instance.PlatformController.GetRandomGround();
                 var acidBody = Instantiate(GameSceneManager.Instance.AcidBodyTemplate, From.position,
                     Quaternion.identity, GameSceneManager.Instance.AcidBodyRoot);
