@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b400e777d7e46bd902d9731ee0e84a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 0
-  CorrodeRadius: 0
+  Velocity: 1
+  CorrodeRadius: 0.5
   Collider2D: {fileID: 0}
   Target: {fileID: 0}
