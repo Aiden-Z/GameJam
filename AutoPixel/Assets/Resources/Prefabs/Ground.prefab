@@ -137,6 +137,8 @@ MonoBehaviour:
   - {fileID: 9176884483551205714, guid: f7dfad75636706648838b2f21c07a28b, type: 3}
   - {fileID: 8249080691368428812, guid: f7dfad75636706648838b2f21c07a28b, type: 3}
   - {fileID: -4304306762911317047, guid: f7dfad75636706648838b2f21c07a28b, type: 3}
-  AcidDuration: 0
+  AcidDuration: 2
   SpriteRenderer: {fileID: 5114021683664650883}
   Collider2D: {fileID: 5114021683664650882}
+  shaket: 0
+  shakem: 0

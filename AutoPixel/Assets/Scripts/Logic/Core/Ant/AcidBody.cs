@@ -13,7 +13,7 @@ namespace Logic.Core.Ant
         private void FixedUpdate()
         {
             var distance = Vector3.Distance(Target.position, transform.position);
-            if (distance < 0.5f)
+            if (distance < 0.1f)
             {
                 var objects = Physics2D.OverlapCircleAll(transform.position, CorrodeRadius);
                 foreach (var o in objects)
