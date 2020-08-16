@@ -26,6 +26,12 @@ namespace Logic.Core.PlayerController
         private Collider2D m_collider2D;
         private Rigidbody2D m_rigidbody2D;
         Animator anim;
+        public AudioSource charaudio;
+        public AudioClip m_pick;
+        public AudioClip m_throw;
+        public AudioClip m_walk;
+        public AudioClip m_fix;
+
         
         private Dictionary<Type, Queue<Collectable>> m_collected = new Dictionary<Type, Queue<Collectable>>
         {
@@ -40,6 +46,8 @@ namespace Logic.Core.PlayerController
             State = State.Idle;
             GameHud.SetBaitsNum(0);
             anim = GetComponent<Animator>();
+            charaudio = GetComponent<AudioSource>();
+
         }
 
         public float CoolDown;
@@ -204,6 +212,10 @@ namespace Logic.Core.PlayerController
                 var ground = GroundFinder.GetGround(transform.position);
                 ground.Knock();
                 Debug.Log($"敲击{ground.name}");
+                charaudio.clip = m_fix;
+                charaudio.Play();
+               
+
             }
         }
 
