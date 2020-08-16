@@ -1386,8 +1386,8 @@ MonoBehaviour:
   MaxAnts: 10
   AntsSurroundRadius: 2
   AntsBornPoint: {fileID: 2838219657824033047}
-  MaxAcidAntBornRadius: 5
-  MinAcidAntBornRadius: 4
+  MaxAcidAntBornRadius: 8
+  MinAcidAntBornRadius: 7
   AcidAntBornInterval: 10
 --- !u!1 &2838219657849408338
 GameObject:
@@ -3224,6 +3224,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2838219656843664274}
     m_Modifications:
+    - target: {fileID: 1615724391, guid: 5fd237da6eb23d3489e5e458ada5c707, type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 125175110067623489, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 711081b0d75585b48a75d0ff9761c8bd,
+        type: 3}
+    - target: {fileID: 2841632767649012445, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.3098089
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841632767649012445, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3098089
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841632767649012445, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3098089
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841632767649012445, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 2841632767649012445, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.502
+      objectReference: {fileID: 0}
     - target: {fileID: 4089198685975940059, guid: 5fd237da6eb23d3489e5e458ada5c707,
         type: 3}
       propertyPath: m_Name
@@ -3298,6 +3333,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7831350842428728114, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575945726792948206, guid: 5fd237da6eb23d3489e5e458ada5c707,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fd237da6eb23d3489e5e458ada5c707, type: 3}
