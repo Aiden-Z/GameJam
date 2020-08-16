@@ -110,6 +110,21 @@ namespace Logic.Core.PlayerController
                     m_holdingBait.transform.position = BaitHolder.position;
                     break;
             }
+
+            foreach (var collectable in m_collected[typeof(Bait.Bait)])
+            {
+                var bait = (Bait.Bait) collectable;
+                if (!bait.isActiveAndEnabled) continue;
+                var curPos = bait.transform.position;
+                var toPos = transform.position;
+                var x = Mathf.Lerp(curPos.x, toPos.x, 0.15f);
+                var y = Mathf.Lerp(curPos.y, toPos.y, 0.15f);
+                bait.transform.position = new Vector3(x, y);
+                if (Vector3.Distance(bait.transform.position, transform.position) < 0.5f)
+                {
+                    bait.gameObject.SetActive(false);
+                }
+            }
         }
 
         private Vector2 m_direction;
@@ -120,8 +135,8 @@ namespace Logic.Core.PlayerController
 
         public void Collect(Collectable collectable)
         {
-            m_collected[typeof(Collectable)].Enqueue(collectable);
-            collectable.gameObject.SetActive(false);
+            m_collected[typeof(Bait.Bait)].Enqueue(collectable);
+            
             GameHud.SetBaitsNum(m_collected.Count);
         }
 
