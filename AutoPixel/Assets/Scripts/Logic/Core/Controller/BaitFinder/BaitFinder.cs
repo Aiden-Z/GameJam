@@ -10,5 +10,6 @@ namespace Logic.Core.Controller.BaitFinder
         {
             GameSceneManager.Instance.PlayerController.Collect(other.GetComponent<Collectable>());
         }
+        
     }
 }
