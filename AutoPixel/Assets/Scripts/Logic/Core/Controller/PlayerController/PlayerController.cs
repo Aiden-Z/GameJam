@@ -143,22 +143,25 @@ namespace Logic.Core.PlayerController
                     break;
             }
 
-            foreach (var collectable in m_collected[typeof(Bait.Bait)])
+            foreach (var pair in m_collected)
             {
-                var bait = (Bait.Bait) collectable;
-                if (!bait.isActiveAndEnabled) continue;
-                var curPos = bait.transform.position;
-                var toPos = transform.position;
-                var x = Mathf.Lerp(curPos.x, toPos.x, 0.15f);
-                var y = Mathf.Lerp(curPos.y, toPos.y, 0.15f);
-                bait.transform.position = new Vector3(x, y);
-                if (Vector3.Distance(bait.transform.position, transform.position) < 0.5f)
+                foreach (var collectable in pair.Value)
                 {
-                    bait.gameObject.SetActive(false);
-                }
-                charaudio.clip = m_pick;
-                charaudio.Play();
 
+                    if (!collectable.isActiveAndEnabled) continue;
+                    var curPos = collectable.transform.position;
+                    var toPos = transform.position;
+                    var x = Mathf.Lerp(curPos.x, toPos.x, 0.15f);
+                    var y = Mathf.Lerp(curPos.y, toPos.y, 0.15f);
+                    collectable.transform.position = new Vector3(x, y);
+                    if (Vector3.Distance(collectable.transform.position, transform.position) < 0.15f)
+                    {
+                        collectable.gameObject.SetActive(false);
+                    }
+                    charaudio.clip = m_pick;
+                    charaudio.Play();
+
+                }
             }
         }
 
