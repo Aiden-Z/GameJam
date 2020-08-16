@@ -33,9 +33,6 @@ namespace Logic.Core.Ground
         public bool IsAlive => Health > 0;
 
 
-        [SerializeField] camerashake m_camera;
-
-
         private void FixedUpdate()
         {
             if (m_isAcidAffect)
@@ -81,7 +78,7 @@ namespace Logic.Core.Ground
             if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
             {
                 Health -= 25;
-                StartCoroutine(m_camera.Shake(.15f, .4f));
+                StartCoroutine(GameSceneManager.Instance.Camerashake.Shake(.15f, .4f));
                
             }
 
