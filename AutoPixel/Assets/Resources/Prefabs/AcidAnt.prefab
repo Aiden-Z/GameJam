@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackInterval: 5
   AcidAnimator: {fileID: 613647084}
+  From: {fileID: 613647086}
 --- !u!212 &3638253724658709843
 SpriteRenderer:
   m_ObjectHideFlags: 0

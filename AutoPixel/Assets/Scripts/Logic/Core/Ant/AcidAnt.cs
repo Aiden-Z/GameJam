@@ -9,6 +9,7 @@ namespace Logic.Core.Ant
     {
         public float AttackInterval;
         public Animator AcidAnimator;
+        public Transform From;
 
         private float m_attackTimer;
         private static readonly int Attack = Animator.StringToHash("Attack");
@@ -21,7 +22,7 @@ namespace Logic.Core.Ant
                 m_attackTimer = 0;
                 
                 var targetGround = GameSceneManager.Instance.PlatformController.GetRandomGround();
-                var acidBody = Instantiate(GameSceneManager.Instance.AcidBodyTemplate, Vector3.zero,
+                var acidBody = Instantiate(GameSceneManager.Instance.AcidBodyTemplate, From.position,
                     Quaternion.identity, GameSceneManager.Instance.AcidBodyRoot);
                 acidBody.Target = targetGround.transform;
                 AcidAnimator.SetTrigger(Attack);
