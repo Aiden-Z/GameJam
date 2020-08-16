@@ -1167,8 +1167,8 @@ MonoBehaviour:
   MaxAnts: 10
   AntsSurroundRadius: 2
   AntsBornPoint: {fileID: 2838219657824033047}
-  MaxAcidAntBornRadius: 8
-  MinAcidAntBornRadius: 7
+  MaxAcidAntBornRadius: 13
+  MinAcidAntBornRadius: 12
   AcidAntBornInterval: 10
 --- !u!1 &2838219657849408338
 GameObject:
@@ -3483,12 +3483,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41086809eb964064792af5c5adcd9881, type: 3}
---- !u!4 &5584742887254784545 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3375231039525524353, guid: 41086809eb964064792af5c5adcd9881,
-    type: 3}
-  m_PrefabInstance: {fileID: 7158406386437548448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5584742887254784547 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3375231039525524355, guid: 41086809eb964064792af5c5adcd9881,
@@ -3501,3 +3495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c6daa0e6f54dcba5909b4c05e0093d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5584742887254784545 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3375231039525524353, guid: 41086809eb964064792af5c5adcd9881,
+    type: 3}
+  m_PrefabInstance: {fileID: 7158406386437548448}
+  m_PrefabAsset: {fileID: 0}

@@ -184,7 +184,12 @@ PrefabInstance:
     - target: {fileID: -5672201844214790535, guid: 2b9ceac04a2e933429446f5320d330a3,
         type: 3}
       propertyPath: AttackInterval
-      value: 8
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5672201844214790535, guid: 2b9ceac04a2e933429446f5320d330a3,
+        type: 3}
+      propertyPath: AttackRadius
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4426145458091226875, guid: 2b9ceac04a2e933429446f5320d330a3,
         type: 3}
