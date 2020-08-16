@@ -13,7 +13,20 @@ namespace Logic.Core.Ground
 
         public int Health
         {
-            set => m_health = value;
+            set
+            {
+                if (m_health <= 0 && value > 0)
+                {
+                    SpriteRenderer.enabled = true;
+                    gameObject.layer = LayerMask.NameToLayer("Ground");
+                }
+                else if (m_health > 0 && value <= 0)
+                {
+                    OnDead();
+                }
+
+                m_health = value;
+            }
             get => m_health;
         }
 
