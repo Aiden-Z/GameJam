@@ -70661,6 +70661,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: root
       objectReference: {fileID: 0}
+    - target: {fileID: 2838219657539697130, guid: 17240c033de4b2c4f99e4169df3e7dfa,
+        type: 3}
+      propertyPath: NextLevelName
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 7092484093068879226, guid: 17240c033de4b2c4f99e4169df3e7dfa,
         type: 3}
       propertyPath: m_SizeDelta.x
