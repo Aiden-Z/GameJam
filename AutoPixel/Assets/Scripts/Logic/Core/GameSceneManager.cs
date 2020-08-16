@@ -31,6 +31,26 @@ namespace Logic.Core
             Instance = this;
         }
 
+        public void CheckDeath()
+        {
+            var noGround = true;
+            foreach (var ground in PlatformController.GetGrounds())
+            {
+                foreach (var ground1 in ground)
+                {
+                    if (ground1.IsAlive)
+                    {
+                        noGround = false;
+                    }
+                }
+            }
+
+            if (noGround)
+            {
+                RestartGame();
+            }
+        }
+
         public void ThrowBait(Vector3 pos)
         {
             var num = Random.Range(MinThrowBaitsNum, MaxThrowBaitsNum);

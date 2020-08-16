@@ -15,6 +15,10 @@ namespace Logic.Core.Controller.PlatformController
         public int YCount;
         private Ground.Ground[][] Grounds;
 
+        public Ground.Ground[][] GetGrounds()
+        {
+            return Grounds;
+        }
         private void Awake()
         {
             var grounds = GetComponentsInChildren<Ground.Ground>();

@@ -133,6 +133,7 @@ namespace Logic.Core.Ground
             Collider2D.gameObject.layer = LayerMask.NameToLayer("PlayerBlock");
             SpriteRenderer.enabled = false;
             m_health = 0;
+            GameSceneManager.Instance.CheckDeath();
         }
 
         public enum GroundType
