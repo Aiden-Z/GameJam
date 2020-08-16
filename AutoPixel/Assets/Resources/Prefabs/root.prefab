@@ -1386,9 +1386,9 @@ MonoBehaviour:
   MaxAnts: 10
   AntsSurroundRadius: 2
   AntsBornPoint: {fileID: 2838219657824033047}
-  MaxAcidAntBornRadius: 0
-  MinAcidAntBornRadius: 0
-  AcidAntBornInterval: 0
+  MaxAcidAntBornRadius: 5
+  MinAcidAntBornRadius: 4
+  AcidAntBornInterval: 10
 --- !u!1 &2838219657849408338
 GameObject:
   m_ObjectHideFlags: 0

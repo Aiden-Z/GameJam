@@ -53,7 +53,7 @@ namespace Logic.Core.Ant
         private float m_acidAntBornTimer;
         private void FixedUpdate()
         {
-            if (m_acidAntBornTimer >= SendAntInterval)
+            if (m_acidAntBornTimer >= AcidAntBornInterval)
             {
                 var curRadius = Random.Range(MinAcidAntBornRadius, MaxAcidAntBornRadius);
                 var randomRad = Random.Range(0, Mathf.PI * 2);

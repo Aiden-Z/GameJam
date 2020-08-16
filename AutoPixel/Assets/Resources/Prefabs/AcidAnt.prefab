@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1203d77bdcd4109a43300e548121862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackInterval: 2
+  AttackInterval: 5
   AcidAnimator: {fileID: 613647084}
 --- !u!212 &3638253724658709843
 SpriteRenderer:
@@ -84,8 +84,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1507200165
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 595000786613108079, guid: 81616079304111b448c757eb75408b9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -113,17 +113,17 @@ PrefabInstance:
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.932735
+      value: -0.963
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.231941
+      value: -0.553
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.034368023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
@@ -163,21 +163,6 @@ PrefabInstance:
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
