@@ -2536,11 +2536,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2838219656843664274}
     m_Modifications:
+    - target: {fileID: 503957160127602988, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 585188cdc4600544eb408bee749e4b3a,
+        type: 3}
+    - target: {fileID: 503957160127602988, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 503957160127602988, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 503957160127602988, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2838219656843664275}
+    - target: {fileID: 2240644969593959760, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 585188cdc4600544eb408bee749e4b3a, type: 3}
     - target: {fileID: 4049402916916131651, guid: a58b907184b643644b9cd34a4d9c7afb,
         type: 3}
       propertyPath: m_LocalPosition.x
