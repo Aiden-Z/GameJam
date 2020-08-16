@@ -66,18 +66,22 @@ namespace Logic.Core.PlayerController
             if (m_angle >= -45 && m_angle < 0 || m_angle < 45 && m_angle >= 0)
             {
                 anim.SetInteger(Direction, 4);
+                GroundFinder.transform.position = new Vector3(0.7f, 0f) + transform.position;
             }
             else if (m_angle >= 45 && m_angle < 135)
             {
                 anim.SetInteger(Direction, 1);
+                GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
             }
             else if (m_angle >= 135 && m_angle <= 180 || m_angle < -135 && m_angle >= -180)
             {
                 anim.SetInteger(Direction, 2);
+                GroundFinder.transform.position = new Vector3(-0.7f, 0f) + transform.position;
             }
             else
             {
                 anim.SetInteger(Direction, 3);
+                GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
             }
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
@@ -233,7 +237,7 @@ namespace Logic.Core.PlayerController
         {
             if (callbackContext.phase == InputActionPhase.Started)
             {
-                var ground = GroundFinder.GetGround(transform.position);
+                var ground = GroundFinder.GetGround(GroundFinder.transform.position);
                 ground.Knock();
                 Debug.Log($"敲击{ground.name}");
                 charaudio.clip = m_fix;
