@@ -29,7 +29,7 @@ namespace Logic.Core.Controller.GroundFinder
             foreach (var bait in m_baits)
             {
                 var curDis = Vector3.Distance(bait.transform.position, position);
-                if (curDis < distance)
+                if (curDis < distance && bait.GetComponent<Ground.Ground>())
                 {
                     distance = curDis;
                     ret = bait.GetComponent<Ground.Ground>();

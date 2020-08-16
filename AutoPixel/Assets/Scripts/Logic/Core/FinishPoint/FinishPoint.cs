@@ -7,9 +7,11 @@ namespace Logic.Core.FinishPoint
 {
     public class FinishPoint : MonoBehaviour
     {
+        public string NextLevelName;
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene(NextLevelName);
         }
     }
 }

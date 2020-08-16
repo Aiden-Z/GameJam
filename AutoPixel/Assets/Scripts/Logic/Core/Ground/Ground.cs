@@ -28,10 +28,8 @@ namespace Logic.Core.Ground
         public Collider2D Collider2D;
         private static readonly int Health1 = Animator.StringToHash("Health");
         private static readonly int AcidAffect = Animator.StringToHash("AcidAffect");
-
         public float shaket;
         public float shakem;
-
         public bool IsAlive => Health > 0;
 
 
@@ -124,6 +122,7 @@ namespace Logic.Core.Ground
         {
             Collider2D.gameObject.layer = LayerMask.NameToLayer("PlayerBlock");
             SpriteRenderer.enabled = false;
+            m_health = 0;
         }
 
         public enum GroundType
