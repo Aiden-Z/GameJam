@@ -7,7 +7,6 @@ namespace Logic.Core.Controller.StoneFinder
         private void OnTriggerEnter2D(Collider2D other)
         {
             GameSceneManager.Instance.PlayerController.AddStone(other.GetComponent<Collectable>());
-            other.gameObject.SetActive(false);
         }
     }
 }
