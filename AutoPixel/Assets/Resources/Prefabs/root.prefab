@@ -310,7 +310,7 @@ MonoBehaviour:
   BaitTemplate: {fileID: 3375231039525524355, guid: 41086809eb964064792af5c5adcd9881,
     type: 3}
   BaitRoot: {fileID: 2838219658480878076}
-  FinishPoint: {fileID: 0}
+  FinishPoint: {fileID: 2083198092457654279}
   MaxThrowBaitsNum: 7
   MinThrowBaitsNum: 4
   AcidAntTemplate: {fileID: 8444933806478006818, guid: 7ffd81938dd764adfa4d4fe09131c85e,
@@ -3148,3 +3148,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3946188319323189504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2083198092457654279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3038431109424105735, guid: 4f968976b01ef3842ba62d701d715931,
+    type: 3}
+  m_PrefabInstance: {fileID: 3946188319323189504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18306372813b4eaaaf1cbac880590746, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

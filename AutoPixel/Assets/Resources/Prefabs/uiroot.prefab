@@ -418,8 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThrowProgress: {fileID: 4049402916867034081}
-  BaitsNum: {fileID: 4049402918439369427, guid: a58b907184b643644b9cd34a4d9c7afb,
-    type: 3}
+  BaitsNum: {fileID: 4640381645174485091}
   Pointer: {fileID: 4049402917182419141}
   StoneNum: {fileID: 503957160127602988}
 --- !u!1 &4049402917182419140
