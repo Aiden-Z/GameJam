@@ -87,6 +87,10 @@ namespace Logic.Core.PlayerController
                     m_pressTimer += Time.fixedDeltaTime;
                     if (State == State.Throwing)
                     {
+                        charaudio.clip = m_throw;
+                        charaudio.Play();
+
+
                         GameHud.Press(m_pressTimer, MaxPressingTime);
                         PositionPointer.gameObject.SetActive(true);
                         var progress = Mathf.Clamp01(m_pressTimer / MaxPressingTime);
@@ -124,6 +128,9 @@ namespace Logic.Core.PlayerController
                 {
                     bait.gameObject.SetActive(false);
                 }
+                charaudio.clip = m_pick;
+                charaudio.Play();
+
             }
         }
 
