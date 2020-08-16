@@ -131,6 +131,8 @@ namespace Logic.Core.PlayerController
         public void OnMove(InputAction.CallbackContext callbackContext)
         {
             m_direction = callbackContext.ReadValue<Vector2>();
+            charaudio.clip = m_walk;
+            charaudio.Play();
         }
 
         public void Collect(Collectable collectable)
