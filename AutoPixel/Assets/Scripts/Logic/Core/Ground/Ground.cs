@@ -91,7 +91,7 @@ namespace Logic.Core.Ground
             if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
             {
                 Health -= 25;
-                StartCoroutine(GameSceneManager.Instance.Camerashake.Shake(.15f, .4f));
+                StartCoroutine(GameSceneManager.Instance.Camerashake.Shake(0.2f, 0.5f));
                
             }
 
