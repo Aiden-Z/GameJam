@@ -63,25 +63,49 @@ namespace Logic.Core.PlayerController
         {
             rotate.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
             Canvas.transform.rotation = Quaternion.Euler(0, 0, m_angle - 90);
-            if (m_angle >= -45 && m_angle < 0 || m_angle < 45 && m_angle >= 0)
+            if (m_direction.Equals(Vector2.zero))
             {
-                anim.SetInteger(Direction, 4);
-                GroundFinder.transform.position = new Vector3(0.7f, 0f) + transform.position;
-            }
-            else if (m_angle >= 45 && m_angle < 135)
-            {
-                anim.SetInteger(Direction, 1);
-                GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
-            }
-            else if (m_angle >= 135 && m_angle <= 180 || m_angle < -135 && m_angle >= -180)
-            {
-                anim.SetInteger(Direction, 2);
-                GroundFinder.transform.position = new Vector3(-0.7f, 0f) + transform.position;
+                if (m_angle >= -45 && m_angle < 0 || m_angle < 45 && m_angle >= 0)
+                {
+                    anim.SetInteger(Direction, 4);
+                    GroundFinder.transform.position = new Vector3(0.7f, 0f) + transform.position;
+                }
+                else if (m_angle >= 45 && m_angle < 135)
+                {
+                    anim.SetInteger(Direction, 1);
+                    GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
+                }
+                else if (m_angle >= 135 && m_angle <= 180 || m_angle < -135 && m_angle >= -180)
+                {
+                    anim.SetInteger(Direction, 2);
+                    GroundFinder.transform.position = new Vector3(-0.7f, 0f) + transform.position;
+                }
+                else
+                {
+                    anim.SetInteger(Direction, 3);
+                    GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
+                }
             }
             else
             {
-                anim.SetInteger(Direction, 3);
-                GroundFinder.transform.position = new Vector3(0f, 0.7f) + transform.position;
+                var absX = Mathf.Abs(m_direction.x);
+                var absY = Mathf.Abs(m_direction.y);
+                if (m_direction.x < 0 && absX > absY)
+                {
+                    anim.SetInteger(Direction, 2);
+                }
+                else if (m_direction.x > 0 && absX > absY)
+                {
+                    anim.SetInteger(Direction, 4);
+                }
+                else if (m_direction.y > 0 && absY > absX)
+                {
+                    anim.SetInteger(Direction, 1);
+                }
+                else
+                {
+                    anim.SetInteger(Direction, 3);
+                }
             }
             m_rigidbody2D.velocity = m_direction * Velocity + GameSceneManager.Instance.PlatformController.Rigidbody2D.velocity;
             m_timer += Time.fixedDeltaTime;
