@@ -28919,6 +28919,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -28.88
       objectReference: {fileID: 0}
+    - target: {fileID: 2083198092457654279, guid: 17240c033de4b2c4f99e4169df3e7dfa,
+        type: 3}
+      propertyPath: NextLevelName
+      value: menu
+      objectReference: {fileID: 0}
     - target: {fileID: 2256654991284512829, guid: 17240c033de4b2c4f99e4169df3e7dfa,
         type: 3}
       propertyPath: m_SizeDelta.x
