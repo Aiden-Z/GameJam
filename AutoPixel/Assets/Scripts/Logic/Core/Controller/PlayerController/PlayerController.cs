@@ -203,6 +203,7 @@ namespace Logic.Core.PlayerController
             {
                 var ground = GroundFinder.GetGround(transform.position);
                 ground.Knock();
+                Debug.Log($"敲击{ground.name}");
             }
         }
 

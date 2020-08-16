@@ -2,6 +2,7 @@
 using Logic.Core.Ant;
 using Logic.Core.Controller.PlatformController;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Logic.Core
@@ -40,6 +41,12 @@ namespace Logic.Core
                 var bait = Instantiate(BaitTemplate, Vector3.zero, Quaternion.identity, BaitRoot);
                 bait.transform.position = pos + new Vector3(x, y);
             }
+        }
+
+        public void RestartGame()
+        {
+            var sceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
