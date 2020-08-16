@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4426145458091226875}
   - component: {fileID: -5672201844214790535}
   - component: {fileID: 3638253724658709843}
-  m_Layer: 0
+  - component: {fileID: 3513852836908871904}
+  m_Layer: 24
   m_Name: AcidAnt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1203d77bdcd4109a43300e548121862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackInterval: 2
+  AttackInterval: 5
   AcidAnimator: {fileID: 613647084}
 --- !u!212 &3638253724658709843
 SpriteRenderer:
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1507200165
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 595000786613108079, guid: 81616079304111b448c757eb75408b9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -98,6 +99,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &3513852836908871904
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438498501431913648}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.94, y: 0.7}
+    newSize: {x: 0.94, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.94, y: 0.7}
+  m_EdgeRadius: 0
 --- !u!1001 &6970795164205376354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,20 +137,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: 1_0
       objectReference: {fileID: 0}
+    - target: {fileID: 6970795164682641801, guid: 6619552874d084ddcacd467d14dae606,
+        type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.932735
+      value: -0.963
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.231941
+      value: -0.553
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.034368023
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
@@ -163,21 +195,6 @@ PrefabInstance:
     - target: {fileID: 6970795164682641804, guid: 6619552874d084ddcacd467d14dae606,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 6970795164682641807, guid: 6619552874d084ddcacd467d14dae606,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
