@@ -313,7 +313,7 @@ MonoBehaviour:
   FinishPoint: {fileID: 2838219657539697130}
   MaxThrowBaitsNum: 7
   MinThrowBaitsNum: 4
-  AcidAntTemplate: {fileID: -5672201844214790535, guid: 2b9ceac04a2e933429446f5320d330a3,
+  AcidAntTemplate: {fileID: 8444933806478006818, guid: 7ffd81938dd764adfa4d4fe09131c85e,
     type: 3}
   Camerashake: {fileID: 6102427734725962214}
 --- !u!1 &2838219656936824710
@@ -815,7 +815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2838219657539697132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.88, y: 22.85, z: 0}
+  m_LocalPosition: {x: 29.5, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2838219656843664274}
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18306372813b4eaaaf1cbac880590746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextLevelName: 
+  NextLevelName: GameScene
 --- !u!212 &2838219657539697128
 SpriteRenderer:
   m_ObjectHideFlags: 0
