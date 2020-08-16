@@ -2755,6 +2755,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2838219656843664274}
     m_Modifications:
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2838219656843664275}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Logic.Core.GameSceneManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637277569267032815, guid: a58b907184b643644b9cd34a4d9c7afb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4049402916916131651, guid: a58b907184b643644b9cd34a4d9c7afb,
         type: 3}
       propertyPath: m_LocalPosition.x
