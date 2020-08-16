@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +29,14 @@ namespace Logic.Core.Ground
         private static readonly int Health1 = Animator.StringToHash("Health");
         private static readonly int AcidAffect = Animator.StringToHash("AcidAffect");
 
+        public float shaket;
+        public float shakem;
+
         public bool IsAlive => Health > 0;
+
+
+        [SerializeField] camerashake m_camera;
+
 
         private void FixedUpdate()
         {
@@ -75,9 +83,13 @@ namespace Logic.Core.Ground
             if (other.gameObject.layer == LayerMask.NameToLayer("Block"))
             {
                 Health -= 25;
+                StartCoroutine(m_camera.Shake(.15f, .4f));
+               
             }
+
         }
 
+      
         public void Knock()
         {
             if (m_health <= 50)
