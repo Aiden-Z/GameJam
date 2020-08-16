@@ -51,6 +51,18 @@ namespace Logic.Core
                 RestartGame();
             }
         }
+        
+        public void ThrowBait(Vector3 pos, int count)
+        {
+            for (int i = 0; i < count; i++)
+            {
+                var randomRad = Random.Range(0, Mathf.PI * 2);
+                var x = Mathf.Cos(randomRad) * radius;
+                var y = Mathf.Sin(randomRad) * radius;
+                var bait = Instantiate(BaitTemplate, Vector3.zero, Quaternion.identity, BaitRoot);
+                bait.transform.position = pos + new Vector3(x, y);
+            }
+        }
 
         public void ThrowBait(Vector3 pos)
         {

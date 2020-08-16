@@ -43,6 +43,7 @@ namespace Logic.Core.Ground
         private static readonly int AcidAffect = Animator.StringToHash("AcidAffect");
         public float shaket;
         public float shakem;
+        public int ThrowNum = 2;
         public bool IsAlive => Health > 0;
 
 
@@ -110,7 +111,7 @@ namespace Logic.Core.Ground
             else
             {
                 Health -= 50;
-                GameSceneManager.Instance.ThrowBait(transform.position);
+                GameSceneManager.Instance.ThrowBait(transform.position, ThrowNum);
                 if (Health <= 0)
                 {
                     OnDead();
