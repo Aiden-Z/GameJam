@@ -157,10 +157,9 @@ namespace Logic.Core.PlayerController
                     if (Vector3.Distance(collectable.transform.position, transform.position) < 0.15f)
                     {
                         collectable.gameObject.SetActive(false);
+                        charaudio.clip = m_pick;
+                        charaudio.Play();
                     }
-                    charaudio.clip = m_pick;
-                    charaudio.Play();
-
                 }
             }
         }
