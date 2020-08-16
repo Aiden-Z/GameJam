@@ -569,6 +569,7 @@ MonoBehaviour:
   m_throw: {fileID: 8300000, guid: d74e9097eaeb44bc38d435a9e8699254, type: 3}
   m_walk: {fileID: 8300000, guid: 48014044f748b46599af70575e70db67, type: 3}
   m_fix: {fileID: 8300000, guid: 691b7ab4a07b942348211fa9db389ee0, type: 3}
+  InitBaits: []
   CoolDown: 0.5
   MaxPressingTime: 0.6
   MaxThrowDistance: 15
@@ -593,7 +594,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &2750093421521563572
 CircleCollider2D:

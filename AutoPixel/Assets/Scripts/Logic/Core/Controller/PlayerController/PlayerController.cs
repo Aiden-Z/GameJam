@@ -31,7 +31,7 @@ namespace Logic.Core.PlayerController
         public AudioClip m_throw;
         public AudioClip m_walk;
         public AudioClip m_fix;
-
+        public Bait.Bait[] InitBaits;
         
         private Dictionary<Type, Queue<Collectable>> m_collected = new Dictionary<Type, Queue<Collectable>>
         {
@@ -47,7 +47,12 @@ namespace Logic.Core.PlayerController
             GameHud.SetBaitsNum(0);
             anim = GetComponent<Animator>();
             charaudio = GetComponent<AudioSource>();
-
+            foreach (var initBait in InitBaits)
+            {
+                m_collected[typeof(Bait.Bait)].Enqueue(initBait);
+                initBait.gameObject.SetActive(false);
+                GameHud.SetBaitsNum(m_collected[typeof(Bait.Bait)].Count);
+            }
         }
 
         public float CoolDown;
@@ -178,7 +183,7 @@ namespace Logic.Core.PlayerController
         {
             m_collected[typeof(Bait.Bait)].Enqueue(collectable);
             
-            GameHud.SetBaitsNum(m_collected.Count);
+            GameHud.SetBaitsNum(m_collected[typeof(Bait.Bait)].Count);
         }
 
         private InputActionPhase m_fireTriggerPhase;
@@ -203,7 +208,7 @@ namespace Logic.Core.PlayerController
                         else
                         {
                             bait = (Bait.Bait) m_collected[typeof(Bait.Bait)].Dequeue();
-                            GameHud.SetBaitsNum(m_collected.Count);
+                            GameHud.SetBaitsNum(m_collected[typeof(Bait.Bait)].Count);
                         }
                         
                         State = State.Holding;

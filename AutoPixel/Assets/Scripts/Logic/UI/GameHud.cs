@@ -25,6 +25,12 @@ namespace Logic.UI
             Pointer.rotation = Quaternion.Euler(new Vector3(0, 0, (int) (Mathf.Rad2Deg * Mathf.Atan2(dir.y , dir.x)) - 90));
         }
 
+        private void Awake()
+        {
+            BaitsNum.text = 0.ToString();
+            StoneNum.text = 0.ToString();
+        }
+
         public void Release()
         {
             ThrowProgress.gameObject.SetActive(false);
