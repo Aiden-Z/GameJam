@@ -29,7 +29,7 @@ namespace Logic.Core
         private void Awake()
         {
             Instance = this;
-            Application.targetFrameRate = 60;
+            Application.targetFrameRate = 120;
         }
 
         public void CheckDeath()
